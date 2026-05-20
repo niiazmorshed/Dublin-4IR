@@ -38,10 +38,22 @@
   --animate-float-e: float-c 6s ease-in-out infinite;
 }
 
+html {
+  scroll-behavior: smooth;
+  /* keep anchored sections clear of the sticky navbar */
+  scroll-padding-top: 96px;
+}
+
 html,
 body {
   background: var(--bg);
   color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -68,6 +80,7 @@ body {
   50% { transform: translateY(-3px); }
 }
 
+<<<<<<< HEAD
 @keyframes orbit-cw {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -92,5 +105,38 @@ body {
   }
   .orbit-counter {
     animation: none !important;
+=======
+/* Staggered scroll reveal: when a RevealGroup scrolls into view it gets
+   data-revealed="true", and each .stagger-item eases in one after another
+   with a delay driven by its --i index. Fires once, on the way down. */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(44px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 160ms);
+  will-change: opacity, transform;
+}
+
+[data-revealed="true"] .stagger-item {
+  opacity: 1;
+  transform: none;
+}
+
+/* Show content immediately when motion is reduced or JS is unavailable. */
+@media (prefers-reduced-motion: reduce) {
+  .stagger-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (scripting: none) {
+  .stagger-item {
+    opacity: 1;
+    transform: none;
+>>>>>>> niaz
   }
 }
