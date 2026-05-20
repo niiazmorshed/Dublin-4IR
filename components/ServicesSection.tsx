@@ -1,98 +1,7 @@
-import type { CSSProperties } from "react";
 import Image from "next/image";
-import RevealGroup from "@/components/RevealGroup";
+import ServicesCategoryList from "@/components/ServicesCategoryList";
 
 const serifItalic = "font-[family-name:var(--font-playfair)] italic font-normal";
-
-type ServiceCategory = {
-  title: string;
-  summary: string;
-  /** Short labels only — shown as a single scannable line */
-  items: string[];
-  icon: "enterprise" | "fintech" | "emerging" | "cloud" | "health";
-};
-
-const CATEGORIES: ServiceCategory[] = [
-  {
-    title: "Enterprise Software Development",
-    summary: "ERP, CRM, e-commerce, CMS, and bespoke web & mobile.",
-    icon: "enterprise",
-    items: ["ERP & CRM", "E-commerce", "Enterprise CMS", "Custom apps"],
-  },
-  {
-    title: "Fintech & Business Solutions",
-    summary: "Financial strategy, insurance tech, payments, and workflow automation.",
-    icon: "fintech",
-    items: ["Fintech consulting", "Insurance platforms", "Payment APIs", "Process automation"],
-  },
-  {
-    title: "AI, Data & Emerging Tech",
-    summary: "ML, IoT, immersive experiences, and interactive products.",
-    icon: "emerging",
-    items: ["AI / ML & data", "IoT", "AR / VR", "Games (Unity / cross-platform)"],
-  },
-  {
-    title: "Cloud & DevOps",
-    summary: "Architecture, migration, CI/CD, resilience, and security testing.",
-    icon: "cloud",
-    items: ["Cloud consulting", "Migration & managed", "DevOps & QA", "Hosting & DR", "Pen testing"],
-  },
-  {
-    title: "HealthTech, LMS & IT Talent",
-    summary: "Digital health, learning platforms, and flexible engineering capacity.",
-    icon: "health",
-    items: ["HealthTech", "LMS", "Talent augmentation", "IT outsourcing"],
-  },
-];
-
-function CategoryIcon({ kind }: { kind: ServiceCategory["icon"] }) {
-  const common =
-    "h-10 w-10 shrink-0 rounded-xl border border-white/[0.1] bg-[linear-gradient(145deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.02)_100%)] p-2 text-[var(--purple-2)] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] min-[960px]:h-11 min-[960px]:w-11 min-[960px]:p-2.5";
-  switch (kind) {
-    case "enterprise":
-      return (
-        <div className={common} aria-hidden>
-          <svg viewBox="0 0 24 24" fill="none" className="h-full w-full" stroke="currentColor" strokeWidth="1.5">
-            <path d="M4 21V6.5L12 3l8 3.5V21M4 21h16M9 21v-8h6v8M9 10h6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-      );
-    case "fintech":
-      return (
-        <div className={common} aria-hidden>
-          <svg viewBox="0 0 24 24" fill="none" className="h-full w-full" stroke="currentColor" strokeWidth="1.5">
-            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-      );
-    case "emerging":
-      return (
-        <div className={common} aria-hidden>
-          <svg viewBox="0 0 24 24" fill="none" className="h-full w-full" stroke="currentColor" strokeWidth="1.5">
-            <path d="M12 3c-4.5 3-6 7.5-6 10.5a6 6 0 1012 0c0-3-1.5-7.5-6-10.5z" strokeLinejoin="round" />
-            <path d="M12 10v4M10 12h4" strokeLinecap="round" />
-          </svg>
-        </div>
-      );
-    case "cloud":
-      return (
-        <div className={common} aria-hidden>
-          <svg viewBox="0 0 24 24" fill="none" className="h-full w-full" stroke="currentColor" strokeWidth="1.5">
-            <path d="M6 18h12a4 4 0 000-8 5 5 0 00-9.9-1A4 4 0 006 18z" strokeLinejoin="round" />
-          </svg>
-        </div>
-      );
-    case "health":
-      return (
-        <div className={common} aria-hidden>
-          <svg viewBox="0 0 24 24" fill="none" className="h-full w-full" stroke="currentColor" strokeWidth="1.5">
-            <path d="M19.5 12.572l-7.5 7.428-7.5-7.428A5 5 0 1112 6.5a5 5 0 117.5 6.072z" strokeLinejoin="round" />
-            <path d="M12 10v6M9 13h6" strokeLinecap="round" />
-          </svg>
-        </div>
-      );
-  }
-}
 
 export default function ServicesSection() {
   return (
@@ -168,44 +77,7 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        <RevealGroup className="flex flex-col gap-3 min-[960px]:gap-3.5">
-          {CATEGORIES.map((cat, i) => (
-            <article
-              key={cat.title}
-              className="stagger-item group relative overflow-hidden rounded-2xl border border-[rgba(220,215,232,0.1)] bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.02)_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] min-[960px]:p-5"
-              style={{ "--i": i } as CSSProperties}
-            >
-              <div className="flex gap-3 min-[960px]:gap-4">
-                <CategoryIcon kind={cat.icon} />
-                <div className="min-w-0 flex-1">
-                  <h3 className="text-[16px] font-bold tracking-[-0.02em] text-[var(--text)] min-[960px]:text-[17px]">
-                    {cat.title}
-                  </h3>
-                  <p className="mt-1.5 text-[12px] leading-relaxed text-[var(--text-dim)] min-[960px]:text-[13px]">
-                    {cat.summary}
-                  </p>
-                  <p className="mt-2.5 text-[12px] leading-snug text-[var(--text-muted)] min-[960px]:text-[13px]">
-                    <span className="text-[var(--text-dim)]">Includes: </span>
-                    {cat.items.join(" · ")}
-                  </p>
-                  <a
-                    href="#contact"
-                    className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-[var(--purple-2)] transition-colors hover:text-[var(--text)] min-[960px]:text-[13px]"
-                  >
-                    Learn more
-                    <span aria-hidden className="inline-block transition-transform group-hover:translate-x-0.5">
-                      →
-                    </span>
-                  </a>
-                </div>
-              </div>
-              <div
-                className="pointer-events-none absolute bottom-0 left-3 right-3 h-px rounded-full bg-[linear-gradient(90deg,transparent,rgba(93,63,214,0.9),rgba(153,140,205,0.7),transparent)] opacity-70 min-[960px]:left-4 min-[960px]:right-4"
-                aria-hidden
-              />
-            </article>
-          ))}
-        </RevealGroup>
+        <ServicesCategoryList />
       </div>
     </section>
   );

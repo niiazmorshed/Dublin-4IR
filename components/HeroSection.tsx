@@ -169,7 +169,7 @@ export default function HeroSection() {
         <p className="mt-[26px] max-w-[510px] text-[17px] leading-[1.55] text-[var(--text-muted)]">
           Bridging Ireland&apos;s digital ambitions with world-class development — delivering government and enterprise projects with precision and speed.
         </p>
-        <div className="mt-9 flex items-center gap-3.5">
+        <div id="start" className="mt-9 flex scroll-mt-28 items-center gap-3.5">
           <a
             href="#start"
             className="group inline-flex items-center gap-2 rounded-full border border-white/[0.18] bg-[linear-gradient(180deg,#5d3fd6_0%,#5c43c3_60%,#332760_100%)] px-7 py-4 text-[15px] font-semibold text-white shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_18px_40px_-14px_var(--purple-glow)] transition duration-200 hover:-translate-y-px hover:shadow-[0_24px_50px_-14px_var(--purple-glow)]"
