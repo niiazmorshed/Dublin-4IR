@@ -169,30 +169,42 @@ export default function ProjectStack() {
                     Visit live site
                     <ExternalArrow />
                   </a>
-
-                  <span className="mt-1 inline-flex items-center gap-2 text-[12px] font-medium tracking-[0.02em] text-[var(--text-dim)]">
-                    <span
-                      className="h-[6px] w-[6px] rounded-full"
-                      style={{ background: project.accent }}
-                    />
-                    {host}
-                  </span>
                 </div>
 
-                {/* image side */}
-                <div className="relative h-[230px] overflow-hidden border-t border-[var(--border-soft)] min-[768px]:h-full min-[768px]:border-t-0 min-[768px]:border-l">
-                  <Image
-                    src={project.image}
-                    alt={`Screenshot of the ${project.name} website`}
-                    fill
-                    placeholder="blur"
-                    sizes="(min-width: 768px) 540px, 100vw"
-                    className="object-cover object-top"
-                  />
+                {/* image side — the screenshot sits in a browser mockup at its
+                    true wide aspect ratio, so the full site capture reads
+                    clearly instead of being cropped into a narrow slice */}
+                <div className="relative flex items-center justify-center border-t border-[var(--border-soft)] p-7 min-[768px]:border-t-0 min-[768px]:border-l min-[768px]:p-10">
+                  {/* accent glow behind the mockup */}
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_60%,rgba(14,11,25,0.5)_100%)]"
+                    className="pointer-events-none absolute inset-0"
+                    style={{
+                      background: `radial-gradient(60% 55% at 70% 40%, color-mix(in srgb, ${project.accent} 36%, transparent), transparent 70%)`,
+                    }}
                   />
+                  <figure className="relative w-full max-w-[560px] overflow-hidden rounded-[14px] border border-[var(--border-strong)] bg-[#0c0a16] shadow-[0_24px_60px_-24px_rgba(0,0,0,0.85)]">
+                    {/* browser chrome */}
+                    <figcaption className="flex items-center gap-2 border-b border-[var(--border-soft)] bg-white/[0.04] px-3.5 py-2.5">
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                      <span className="ml-2 truncate rounded-md bg-black/30 px-2.5 py-1 text-[11px] text-[var(--text-dim)]">
+                        {host}
+                      </span>
+                    </figcaption>
+                    {/* screenshot at its native ~2.2:1 ratio (no crop) */}
+                    <div className="relative aspect-[22/10]">
+                      <Image
+                        src={project.image}
+                        alt={`Screenshot of the ${project.name} website`}
+                        fill
+                        placeholder="blur"
+                        sizes="(min-width: 768px) 560px, 90vw"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                  </figure>
                 </div>
               </div>
             </article>
