@@ -132,14 +132,17 @@ body {
   width: 100%;
   border-radius: 24px;
   border: 1px solid var(--border-strong);
-  /* accent-tinted surface so each stacked card reads as distinct */
-  background:
+  /* OPAQUE surface: the solid base color guarantees each card fully covers the
+     one behind it while stacking, and the gradients on top add an accent tint
+     (distinct per card) plus a subtle diagonal sheen. */
+  background-color: #15111f;
+  background-image:
     radial-gradient(
       130% 120% at 0% 0%,
-      color-mix(in srgb, var(--accent) 30%, transparent),
-      transparent 58%
+      color-mix(in srgb, var(--accent) 32%, transparent),
+      transparent 60%
     ),
-    linear-gradient(165deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+    linear-gradient(165deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.012));
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.08) inset,
     0 30px 80px -36px rgba(0, 0, 0, 0.85);
