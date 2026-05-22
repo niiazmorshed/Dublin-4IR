@@ -4,9 +4,9 @@ import { useEffect, useRef } from "react";
 import Image, { type StaticImageData } from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import project1 from "@/public/project_1.png";
-import project2 from "@/public/project_2.png";
-import project3 from "@/public/project_3.png";
+import fineAnswer from "@/public/fineanswer.png";
+import irishBangla from "@/public/irishbangla.png";
+import fineAnswerIreland from "@/public/fineanswerIreland.png";
 
 type Project = {
   name: string;
@@ -25,17 +25,8 @@ const PROJECTS: Project[] = [
     description:
       "A fast, content-first web platform with a clean reading experience and responsive layouts across every device.",
     liveUrl: "https://www.fineanswer.net",
-    image: project1,
+    image: fineAnswer,
     accent: "#5d3fd6",
-  },
-  {
-    name: "Fine Answer Ireland",
-    category: "Regional Edition",
-    description:
-      "The Ireland-focused edition — localized content and an accessible interface built for speed and clarity.",
-    liveUrl: "https://fine-answer-ireland-plhp.vercel.app",
-    image: project2,
-    accent: "#18a06b",
   },
   {
     name: "Irish Bangla",
@@ -43,8 +34,17 @@ const PROJECTS: Project[] = [
     description:
       "A community-driven platform bridging Irish and Bangla audiences with a modern, mobile-friendly design.",
     liveUrl: "https://irishbangla.vercel.app",
-    image: project3,
+    image: irishBangla,
     accent: "#c2705a",
+  },
+  {
+    name: "Fine Answer Ireland",
+    category: "Regional Edition",
+    description:
+      "The Ireland-focused edition — localized content and an accessible interface built for speed and clarity.",
+    liveUrl: "https://fine-answer-ireland-plhp.vercel.app",
+    image: fineAnswerIreland,
+    accent: "#18a06b",
   },
 ];
 
