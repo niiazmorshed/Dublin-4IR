@@ -1,63 +1,85 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+
 type NavLinkProps = {
   href: string;
-  caret?: boolean;
   children: React.ReactNode;
 };
 
-function NavLink({ href, caret = false, children }: NavLinkProps) {
+function NavLink({ href, children }: NavLinkProps) {
   return (
-    <a
+    <Link
       href={href}
-      className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[14px] text-[var(--text-muted)] transition-colors hover:bg-white/[0.04] hover:text-[var(--text)]"
+      className="inline-flex items-center rounded-full px-3.5 py-2 text-[14px] text-[var(--text-muted)] transition-colors hover:bg-white/[0.04] hover:text-[var(--text)]"
     >
       {children}
-      {caret && (
-        <span
-          aria-hidden
-          className="ml-0.5 inline-block h-2 w-2 -translate-y-px rotate-45 border-b-[1.5px] border-r-[1.5px] border-current opacity-70"
-        />
-      )}
-    </a>
+    </Link>
   );
 }
 
+/**
+ * Hides the navbar while scrolling down and reveals it while scrolling up.
+ * The bar always stays visible near the top of the page. Sticky positioning is
+ * kept so it occupies layout space; only a transform animates the show/hide.
+ */
 export default function Navbar() {
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
+
+  useEffect(() => {
+    lastY.current = window.scrollY;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+
+      // Ignore sub-pixel jitter so the bar doesn't flicker.
+      if (Math.abs(delta) < 6) return;
+
+      // Always show near the top; otherwise follow scroll direction.
+      setHidden(delta > 0 && y > 80);
+      lastY.current = y;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="sticky top-[14px] z-50 px-6">
+    <div
+      className={`sticky top-[14px] z-50 px-6 transition-transform duration-300 ease-out motion-reduce:transition-none ${
+        hidden ? "-translate-y-[140%]" : "translate-y-0"
+      }`}
+    >
       <nav
         aria-label="Primary"
         className="mx-auto flex max-w-[1240px] items-center justify-between rounded-full border border-[var(--border-soft)] bg-[rgba(14,11,25,0.55)] py-3 pr-[18px] pl-[22px] shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_20px_60px_-20px_rgba(0,0,0,0.6)] backdrop-blur-[18px] backdrop-saturate-[140%]"
       >
-        <a
-          href="#"
-          className="flex items-center gap-2.5 text-[19px] font-extrabold tracking-[-0.02em] text-[var(--text)]"
+        <Link
+          href="/"
+          className="flex items-center text-[19px] font-extrabold tracking-[-0.02em] text-[var(--text)]"
         >
-          <span className="grid h-7 w-7 place-items-center rounded-[8px] bg-[linear-gradient(135deg,#998ccd_0%,#5d3fd6_60%,#332760_100%)] text-[14px] font-extrabold text-white shadow-[0_0_0_1px_rgba(255,255,255,0.1)_inset,0_8px_24px_-8px_var(--purple-glow)]">
-            D
-          </span>
           <span>
             Dublin<span className="text-[var(--text-muted)]">4ir</span>
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-1 min-[960px]:flex">
-          <NavLink href="#services" caret>
-            Services
-          </NavLink>
-          <NavLink href="#projects" caret>
-            Projects
-          </NavLink>
-          <NavLink href="#about">About</NavLink>
-          <NavLink href="#contact">Contact</NavLink>
-          <NavLink href="#tenders">Government Tenders</NavLink>
+          <NavLink href="/#services">Services</NavLink>
+          <NavLink href="/#projects">Projects</NavLink>
+          <NavLink href="/#about">About</NavLink>
+          <NavLink href="/blog">Blog</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
         </div>
 
-        <a
-          href="#contact"
+        <Link
+          href="/contact"
           className="rounded-full border border-white/[0.16] bg-[linear-gradient(180deg,#5d3fd6_0%,#5c43c3_60%,#332760_100%)] px-5 py-2.5 text-[14px] font-semibold text-white shadow-[0_8px_24px_-10px_var(--purple-glow),0_1px_0_rgba(255,255,255,0.2)_inset] transition-transform duration-200 hover:-translate-y-px hover:shadow-[0_12px_30px_-10px_var(--purple-glow)]"
         >
           Start a Project
-        </a>
+        </Link>
       </nav>
     </div>
   );
