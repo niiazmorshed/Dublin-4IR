@@ -58,7 +58,9 @@ body {
 
 body {
   min-height: 100vh;
-  overflow-x: hidden;
+  /* `clip` (not `hidden`) prevents horizontal scroll without turning body into
+     a scroll container, which would break the sticky stacking cards below. */
+  overflow-x: clip;
   font-family: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   background:
@@ -166,5 +168,95 @@ body {
   .stagger-item--flow-card.stagger-item--from-left,
   .stagger-item--flow-card.stagger-item--from-right {
     transform: translateY(36px) scale(0.98);
+  }
+}
+
+/* ===========================================================================
+   Our Work — sticky scroll "stacking cards" deck
+   ---------------------------------------------------------------------------
+   Desktop (>=768px): every .work-panel is position:sticky + 100vh tall, so the
+   panels pin to the top of the viewport one after another and naturally stack
+   like a deck. GSAP/ScrollTrigger then scrubs a slight scale-down + dim on the
+   card being covered (see components/ProjectStack.tsx) for the depth illusion.
+
+   Mobile (<768px) and no-JS: panels are plain blocks, so the section falls
+   back to a simple vertical scroll list with no pinning.
+   =========================================================================== */
+
+/* mobile-first default: a normal vertical list */
+.work-panel {
+  margin-bottom: 1.25rem;
+}
+
+.work-card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 24px;
+  border: 1px solid var(--border-strong);
+  /* OPAQUE surface: the solid base color guarantees each card fully covers the
+     one behind it while stacking, and the gradients on top add an accent tint
+     (distinct per card) plus a subtle diagonal sheen. */
+  background-color: #15111f;
+  background-image:
+    radial-gradient(
+      130% 120% at 0% 0%,
+      color-mix(in srgb, var(--accent) 32%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(165deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.012));
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 30px 80px -36px rgba(0, 0, 0, 0.85);
+}
+
+/* depth overlay — GSAP fades this in as the card slips behind the next one */
+.work-card-dim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: rgba(6, 4, 14, 0.65);
+}
+
+/* accent-driven bits inside each card */
+.work-card-index {
+  color: color-mix(in srgb, var(--accent) 68%, white 32%);
+}
+
+.work-card-badge {
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border-strong));
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.work-card-btn {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 92%, white 8%),
+    color-mix(in srgb, var(--accent) 60%, black 40%)
+  );
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 18px 40px -16px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+@media (min-width: 768px) {
+  .work-panel {
+    position: sticky;
+    top: 0;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    /* breathing room so the rounded edges + shadow stay visible while pinned */
+    padding-block: 3vh;
+  }
+
+  .work-card {
+    height: 80vh;
+    max-width: 1080px;
+    will-change: transform;
   }
 }

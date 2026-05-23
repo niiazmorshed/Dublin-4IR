@@ -42,12 +42,42 @@ function Constellation() {
             <stop offset="100%" stopColor="#998ccd" stopOpacity="0.06" />
           </linearGradient>
         </defs>
-        <path d="M 130 110 L 130 200 L 240 200 L 240 290" stroke="url(#lg)" strokeWidth="1.2" strokeDasharray="3 5" />
-        <path d="M 410 60 L 410 150 L 320 150 L 320 240" stroke="url(#lg)" strokeWidth="1.2" strokeDasharray="3 5" />
-        <path d="M 510 150 L 420 150 L 420 270 L 370 270" stroke="url(#lg)" strokeWidth="1.2" strokeDasharray="3 5" />
-        <path d="M 130 470 L 130 380 L 240 380 L 240 330" stroke="url(#lg)" strokeWidth="1.2" strokeDasharray="3 5" />
-        <path d="M 300 520 L 300 360" stroke="url(#lg)" strokeWidth="1.2" strokeDasharray="3 5" />
-        <path d="M 500 490 L 500 400 L 380 400 L 380 340" stroke="url(#lg)" strokeWidth="1.2" strokeDasharray="3 5" />
+        <path
+          d="M 130 110 L 130 200 L 240 200 L 240 290"
+          stroke="url(#lg)"
+          strokeWidth="1.2"
+          strokeDasharray="3 5"
+        />
+        <path
+          d="M 410 60 L 410 150 L 320 150 L 320 240"
+          stroke="url(#lg)"
+          strokeWidth="1.2"
+          strokeDasharray="3 5"
+        />
+        <path
+          d="M 510 150 L 420 150 L 420 270 L 370 270"
+          stroke="url(#lg)"
+          strokeWidth="1.2"
+          strokeDasharray="3 5"
+        />
+        <path
+          d="M 130 470 L 130 380 L 240 380 L 240 330"
+          stroke="url(#lg)"
+          strokeWidth="1.2"
+          strokeDasharray="3 5"
+        />
+        <path
+          d="M 300 520 L 300 360"
+          stroke="url(#lg)"
+          strokeWidth="1.2"
+          strokeDasharray="3 5"
+        />
+        <path
+          d="M 500 490 L 500 400 L 380 400 L 380 340"
+          stroke="url(#lg)"
+          strokeWidth="1.2"
+          strokeDasharray="3 5"
+        />
       </svg>
 
       {/* central hub */}
@@ -64,11 +94,16 @@ function Constellation() {
       >
         <IconTile>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M12 3l2.5 5.5L20 9.5l-4 4 1 6L12 17l-5 2.5 1-6-4-4 5.5-1L12 3z" fill="#fff" />
+            <path
+              d="M12 3l2.5 5.5L20 9.5l-4 4 1 6L12 17l-5 2.5 1-6-4-4 5.5-1L12 3z"
+              fill="#fff"
+            />
           </svg>
         </IconTile>
         <div>
-          <div className="text-[13.5px] leading-[1.2] font-semibold whitespace-nowrap">Gov Tender Won</div>
+          <div className="text-[13.5px] leading-[1.2] font-semibold whitespace-nowrap">
+            Gov Tender Won
+          </div>
           <div className="mt-[3px] flex items-center gap-1 text-[11px] text-[var(--text-dim)]">
             <PinIcon />
             Dublin, IE
@@ -81,7 +116,9 @@ function Constellation() {
         className={`${NODE_BASE} top-[2%] right-[24%] animate-[float-c_5.5s_ease-in-out_infinite] gap-2 rounded-full py-[6px] pr-2.5 pl-[6px]`}
       >
         <div className="h-7 w-7 shrink-0 rounded-full border-[1.5px] border-white/[0.15] bg-[linear-gradient(135deg,#b68072,#5c43c3)]" />
-        <div className="text-[11.5px] font-medium text-[var(--text-muted)]">Senior Engineer in Dhaka</div>
+        <div className="text-[11.5px] font-medium text-[var(--text-muted)]">
+          Senior Engineer in Dhaka
+        </div>
       </div>
 
       {/* top-right: Stat card */}
@@ -89,13 +126,19 @@ function Constellation() {
         className={`${NODE_BASE} top-[14%] right-[4%] w-[168px] animate-[float-b_7s_ease-in-out_infinite] flex-col items-stretch gap-2`}
       >
         <div className="flex items-center justify-between">
-          <span className="text-[11px] tracking-[0.02em] text-[var(--text-dim)]">Project velocity</span>
+          <span className="text-[11px] tracking-[0.02em] text-[var(--text-dim)]">
+            Project velocity
+          </span>
         </div>
         <div className="flex items-baseline gap-1">
           <span className="text-[24px] font-bold tracking-[-0.02em]">+47%</span>
           <span className="text-[11px] text-[var(--warm)]">▲</span>
         </div>
-        <svg className="h-7 w-full" viewBox="0 0 140 28" preserveAspectRatio="none">
+        <svg
+          className="h-7 w-full"
+          viewBox="0 0 140 28"
+          preserveAspectRatio="none"
+        >
           <defs>
             <linearGradient id="chartg" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#998ccd" stopOpacity="0.45" />
@@ -126,7 +169,9 @@ function Constellation() {
         </div>
         <div className="h-[34px] w-[34px] shrink-0 rounded-full border-[1.5px] border-white/[0.15] bg-[linear-gradient(135deg,#998ccd,#5d3fd6)]" />
         <div>
-          <div className="text-[13.5px] leading-[1.2] font-semibold whitespace-nowrap">Project Lead</div>
+          <div className="text-[13.5px] leading-[1.2] font-semibold whitespace-nowrap">
+            Project Lead
+          </div>
           <div className="mt-[3px] flex items-center gap-1 text-[11px] text-[var(--text-dim)]">
             <PinIcon />
             Cork, IE
@@ -144,7 +189,9 @@ function Constellation() {
         className={`${NODE_BASE} right-[8%] bottom-[4%] animate-[float-c_6s_ease-in-out_infinite] gap-2 rounded-full py-[6px] pr-3 pl-[6px]`}
       >
         <div className="h-7 w-7 shrink-0 rounded-full border-[1.5px] border-white/[0.15] bg-[linear-gradient(135deg,#dcd7e8,#b68072)]" />
-        <div className="text-[11.5px] font-medium text-[var(--text-muted)]">Shipped to production</div>
+        <div className="text-[11.5px] font-medium text-[var(--text-muted)]">
+          Shipped to production
+        </div>
       </div>
     </div>
   );
@@ -167,7 +214,9 @@ export default function HeroSection() {
           </span>
         </h1>
         <p className="mt-[26px] max-w-[510px] text-[17px] leading-[1.55] text-[var(--text-muted)]">
-          Bridging Ireland&apos;s digital ambitions with world-class development — delivering government and enterprise projects with precision and speed.
+          Bridging Ireland&apos;s digital ambitions with world-class development
+          — delivering government and enterprise projects with precision and
+          speed.
         </p>
         <div id="start" className="mt-9 flex scroll-mt-28 items-center gap-3.5">
           <a

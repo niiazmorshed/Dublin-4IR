@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { getCategoryBySlug, SERVICE_CATEGORIES } from "@/lib/service-categories";
 
 const serifItalic = "font-[family-name:var(--font-playfair)] italic font-normal";
@@ -13,18 +13,21 @@ function parseServiceSlugFromHash(hash: string): string | null {
   return null;
 }
 
+function subscribeToHash(onChange: () => void) {
+  window.addEventListener("hashchange", onChange);
+  return () => window.removeEventListener("hashchange", onChange);
+}
+
 export default function ContactSection() {
-  const [activeSlug, setActiveSlug] = useState<string | null>(null);
-
-  const syncFromHash = useCallback(() => {
-    setActiveSlug(parseServiceSlugFromHash(window.location.hash));
-  }, []);
-
-  useEffect(() => {
-    syncFromHash();
-    window.addEventListener("hashchange", syncFromHash);
-    return () => window.removeEventListener("hashchange", syncFromHash);
-  }, [syncFromHash]);
+  // Read the URL hash from an external store: the snapshot is sampled during
+  // render (so no setState inside an effect) and re-sampled on `hashchange`.
+  // The server snapshot is "" so SSR/hydration stay consistent.
+  const hash = useSyncExternalStore(
+    subscribeToHash,
+    () => window.location.hash,
+    () => "",
+  );
+  const activeSlug = parseServiceSlugFromHash(hash);
 
   const active = activeSlug ? getCategoryBySlug(activeSlug) : null;
 
