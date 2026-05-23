@@ -73,13 +73,6 @@ export default function Navbar() {
           <NavLink href="/blog">Blog</NavLink>
           <NavLink href="/contact">Contact</NavLink>
         </div>
-
-        <Link
-          href="/contact"
-          className="rounded-full border border-white/[0.16] bg-[linear-gradient(180deg,#5d3fd6_0%,#5c43c3_60%,#332760_100%)] px-5 py-2.5 text-[14px] font-semibold text-white shadow-[0_8px_24px_-10px_var(--purple-glow),0_1px_0_rgba(255,255,255,0.2)_inset] transition-transform duration-200 hover:-translate-y-px hover:shadow-[0_12px_30px_-10px_var(--purple-glow)]"
-        >
-          Start a Project
-        </Link>
       </nav>
     </div>
   );
