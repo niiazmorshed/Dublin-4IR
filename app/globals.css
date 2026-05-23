@@ -143,6 +143,34 @@ body {
   }
 }
 
+/* How We Work — flex stagger + measured desktop connectors */
+.process-flow-track {
+  width: 100%;
+}
+
+/* Directional card entrance + connector fade */
+.stagger-item--flow-line {
+  transform: translateY(16px);
+  transition-duration: 0.55s;
+}
+
+.stagger-item--flow-card.stagger-item--from-left {
+  transform: translate(-40px, 52px) scale(0.96);
+  transition-duration: 0.75s;
+}
+
+.stagger-item--flow-card.stagger-item--from-right {
+  transform: translate(40px, 52px) scale(0.96);
+  transition-duration: 0.75s;
+}
+
+@media (max-width: 959px) {
+  .stagger-item--flow-card.stagger-item--from-left,
+  .stagger-item--flow-card.stagger-item--from-right {
+    transform: translateY(36px) scale(0.98);
+  }
+}
+
 /* ===========================================================================
    Our Work — sticky scroll "stacking cards" deck
    ---------------------------------------------------------------------------
