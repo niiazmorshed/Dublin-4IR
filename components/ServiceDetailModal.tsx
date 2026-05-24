@@ -49,12 +49,12 @@ export default function ServiceDetailModal({ category, onClose }: ServiceDetailM
         aria-modal="true"
         aria-labelledby={titleId}
         tabIndex={-1}
-        className="relative z-[1] max-h-[min(88vh,720px)] w-full max-w-[520px] overflow-y-auto rounded-2xl border border-[rgba(220,215,232,0.14)] bg-[linear-gradient(180deg,rgba(22,17,38,0.98)_0%,rgba(14,11,25,0.98)_100%)] p-6 shadow-[0_1px_0_rgba(255,255,255,0.08)_inset,0_40px_80px_-24px_rgba(0,0,0,0.85)] min-[960px]:p-7"
+        className="surface-card relative z-[1] max-h-[min(88vh,720px)] w-full max-w-[520px] overflow-y-auto p-6 min-[960px]:p-7"
       >
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 grid h-9 w-9 place-items-center rounded-full border border-[var(--border-strong)] bg-white/[0.04] text-[var(--text-muted)] transition-colors hover:bg-white/[0.08] hover:text-[var(--text)]"
+          className="absolute top-4 right-4 grid h-9 w-9 place-items-center rounded-full border border-[var(--border-soft)] bg-[var(--surface-tint)] text-[var(--text-muted)] transition-colors hover:bg-[rgba(255,255,255,0.08)] hover:text-[var(--text)]"
           aria-label="Close"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
@@ -83,14 +83,14 @@ export default function ServiceDetailModal({ category, onClose }: ServiceDetailM
           <a
             href={`#contact-${category.slug}`}
             onClick={onClose}
-            className="inline-flex items-center gap-2 rounded-full border border-white/[0.18] bg-[linear-gradient(180deg,#5d3fd6_0%,#5c43c3_60%,#332760_100%)] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_8px_24px_-12px_var(--purple-glow)] transition hover:-translate-y-px"
+            className="btn-primary btn-primary-sm"
           >
             Discuss this service
           </a>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full border border-[var(--border-strong)] px-5 py-2.5 text-[13px] font-semibold text-[var(--text-muted)] transition-colors hover:text-[var(--text)]"
+            className="btn-ghost"
           >
             Close
           </button>

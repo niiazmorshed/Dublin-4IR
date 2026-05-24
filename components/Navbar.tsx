@@ -12,7 +12,7 @@ function NavLink({ href, children }: NavLinkProps) {
   return (
     <Link
       href={href}
-      className="inline-flex items-center rounded-full px-3.5 py-2 text-[14px] text-[var(--text-muted)] transition-colors hover:bg-white/[0.04] hover:text-[var(--text)]"
+      className="inline-flex items-center rounded-full px-3.5 py-2 text-[14px] text-[var(--text-muted)] transition-colors hover:bg-[var(--surface-tint)] hover:text-[var(--text)]"
     >
       {children}
     </Link>
@@ -55,7 +55,7 @@ export default function Navbar() {
     >
       <nav
         aria-label="Primary"
-        className="mx-auto flex max-w-[1240px] items-center justify-between rounded-full border border-[var(--border-soft)] bg-[rgba(14,11,25,0.55)] py-3 pr-[18px] pl-[22px] shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_20px_60px_-20px_rgba(0,0,0,0.6)] backdrop-blur-[18px] backdrop-saturate-[140%]"
+        className="mx-auto flex max-w-[1240px] items-center justify-between rounded-full border border-[var(--border-soft)] bg-[rgba(14,11,25,0.55)] py-3 pr-[18px] pl-[22px] shadow-[var(--shadow-card)] backdrop-blur-[18px] backdrop-saturate-[140%]"
       >
         <Link
           href="/"
@@ -76,7 +76,7 @@ export default function Navbar() {
 
         <Link
           href="/contact"
-          className="rounded-full border border-white/[0.16] bg-[linear-gradient(180deg,#5d3fd6_0%,#5c43c3_60%,#332760_100%)] px-5 py-2.5 text-[14px] font-semibold text-white shadow-[0_8px_24px_-10px_var(--purple-glow),0_1px_0_rgba(255,255,255,0.2)_inset] transition-transform duration-200 hover:-translate-y-px hover:shadow-[0_12px_30px_-10px_var(--purple-glow)]"
+          className="btn-primary btn-primary-sm"
         >
           Start a Project
         </Link>

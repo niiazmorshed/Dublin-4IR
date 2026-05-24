@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <main className="mx-auto max-w-[760px] px-6 pb-24 pt-20 min-[960px]:pt-28">
       <header className="max-w-[52ch]">
-        <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--text-muted)] uppercase">
+        <p className="section-eyebrow">
           Contact
         </p>
         <h1 className="mt-3 text-[clamp(2rem,5vw,3rem)] font-bold tracking-[-0.03em] text-[var(--text)]">

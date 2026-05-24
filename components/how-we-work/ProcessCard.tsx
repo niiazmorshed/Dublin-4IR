@@ -49,15 +49,13 @@ export default function ProcessCard({ step }: { step: ProcessStep }) {
 
   return (
     <article
-      className={`flex w-full max-w-[min(100%,560px)] overflow-hidden rounded-[22px] border shadow-[0_12px_40px_rgba(0,0,0,0.22)] ${
-        isAccent
-          ? "border-[rgba(93,63,214,0.28)] bg-[linear-gradient(135deg,rgba(93,63,214,0.18)_0%,rgba(51,39,96,0.35)_100%)]"
-          : "border-[var(--border-soft)] bg-[rgba(255,255,255,0.05)]"
+      className={`flex w-full max-w-[min(100%,560px)] overflow-hidden ${
+        isAccent ? "surface-card-accent" : "surface-card"
       }`}
     >
       <div
         className={`flex w-[52px] shrink-0 items-center justify-center px-2 py-8 sm:w-[58px] ${
-          isAccent ? "bg-[var(--purple-deep)]" : "bg-[#0a0812]"
+          isAccent ? "surface-sidebar-accent" : "surface-sidebar"
         }`}
       >
         <span className="text-[10px] font-semibold tracking-[0.14em] text-[var(--purple-2)] uppercase [writing-mode:vertical-rl] rotate-180">

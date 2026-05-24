@@ -37,7 +37,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
       <article className="mt-8">
         <header>
           <div className="flex flex-wrap items-center gap-2 text-[12px] text-[var(--text-dim)]">
-            <span className="inline-flex rounded-full border border-[var(--border-soft)] bg-white/[0.04] px-3 py-1 text-[11px] font-semibold tracking-[0.08em] text-[var(--text-muted)] uppercase">
+            <span className="inline-flex rounded-full border border-[var(--border-soft)] bg-[var(--surface-tint)] px-3 py-1 text-[11px] font-semibold tracking-[0.08em] text-[var(--text-muted)] uppercase">
               {post.category}
             </span>
             <time dateTime={post.date}>{formatPostDate(post.date)}</time>

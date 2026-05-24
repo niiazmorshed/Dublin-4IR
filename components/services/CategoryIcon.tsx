@@ -2,7 +2,7 @@ import type { ServiceCategory } from "@/lib/service-categories";
 
 export function CategoryIcon({ kind }: { kind: ServiceCategory["icon"] }) {
   const common =
-    "h-10 w-10 shrink-0 rounded-xl border border-white/[0.1] bg-[linear-gradient(145deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.02)_100%)] p-2 text-[var(--purple-2)] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] min-[960px]:h-11 min-[960px]:w-11 min-[960px]:p-2.5";
+    "h-10 w-10 shrink-0 rounded-xl border border-[var(--border-soft)] bg-[var(--surface-tint)] p-2 text-[var(--purple-2)] shadow-[var(--shadow-card)] min-[960px]:h-11 min-[960px]:w-11 min-[960px]:p-2.5";
   switch (kind) {
     case "enterprise":
       return (

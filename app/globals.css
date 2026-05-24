@@ -5,16 +5,153 @@
   --bg-2: #161139;
   --surface: rgba(255, 255, 255, 0.04);
   --surface-2: rgba(255, 255, 255, 0.06);
+  --surface-tint: rgba(255, 255, 255, 0.05);
+  --surface-sidebar: #0a0812;
   --border-soft: rgba(220, 215, 232, 0.08);
   --border-strong: rgba(220, 215, 232, 0.16);
-  --text: #dcd7e8;
-  --text-muted: #998ccd;
-  --text-dim: #6b619a;
+  --border-accent: rgba(93, 63, 214, 0.28);
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.72);
+  --text-dim: #ffffff;
   --purple: #5d3fd6;
+  --purple-btn: #5d3fd6;
+  --purple-btn-hover: #4f35c4;
   --purple-2: #998ccd;
   --purple-deep: #332760;
   --purple-glow: rgba(93, 63, 214, 0.55);
   --warm: #b68072;
+  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.22);
+  --shadow-card-accent: 0 24px 48px -24px rgba(93, 63, 214, 0.55);
+  --gradient-surface-accent: linear-gradient(
+    135deg,
+    rgba(93, 63, 214, 0.18) 0%,
+    rgba(51, 39, 96, 0.35) 100%
+  );
+  --gradient-primary: linear-gradient(180deg, #5d3fd6 0%, #5c43c3 60%, #332760 100%);
+  --gradient-primary-solid: linear-gradient(145deg, #5d3fd6 0%, #4a32c4 50%, #332760 100%);
+  --radius-card: 22px;
+  --radius-card-sm: 16px;
+  --radius-btn: 10px;
+  --gradient-heading: linear-gradient(180deg, #ffffff 0%, #ddd6f0 38%, #a89fd4 72%, #7a6bb8 100%);
+}
+
+.text-heading-gradient {
+  background-image: var(--gradient-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Shared card surfaces — matches How We Work / ProcessCard shading */
+.surface-card {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-soft);
+  background: var(--surface-tint);
+  box-shadow: var(--shadow-card);
+}
+
+.surface-card-sm {
+  border-radius: var(--radius-card-sm);
+  border: 1px solid var(--border-soft);
+  background: var(--surface-tint);
+  box-shadow: var(--shadow-card);
+}
+
+.surface-card-accent {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-accent);
+  background: var(--gradient-surface-accent);
+  box-shadow: var(--shadow-card);
+}
+
+.surface-card-accent-solid {
+  border-radius: var(--radius-card-sm);
+  border: 1px solid rgba(93, 63, 214, 0.35);
+  background: var(--gradient-primary-solid);
+  box-shadow: var(--shadow-card-accent);
+}
+
+.surface-sidebar {
+  background: var(--surface-sidebar);
+}
+
+.surface-sidebar-accent {
+  background: var(--purple-deep);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-btn);
+  border: none;
+  background: var(--purple-btn);
+  padding: 0.8125rem 1.625rem;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: none;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--purple-btn-hover);
+}
+
+.btn-primary-sm {
+  padding: 0.625rem 1.125rem;
+  font-size: 14px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  padding: 0.8125rem 1.375rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  padding: 0.625rem 1.125rem;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.btn-ghost:hover {
+  color: var(--text);
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 @theme inline {
@@ -192,22 +329,18 @@ body {
   position: relative;
   overflow: hidden;
   width: 100%;
-  border-radius: 24px;
-  border: 1px solid var(--border-strong);
-  /* OPAQUE surface: the solid base color guarantees each card fully covers the
-     one behind it while stacking, and the gradients on top add an accent tint
-     (distinct per card) plus a subtle diagonal sheen. */
-  background-color: #15111f;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-soft);
+  /* OPAQUE base so stacked cards fully cover the one behind them */
+  background-color: #0f0c18;
   background-image:
     radial-gradient(
       130% 120% at 0% 0%,
-      color-mix(in srgb, var(--accent) 32%, transparent),
+      color-mix(in srgb, var(--accent) 28%, transparent),
       transparent 60%
     ),
-    linear-gradient(165deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.012));
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.08) inset,
-    0 30px 80px -36px rgba(0, 0, 0, 0.85);
+    var(--gradient-surface-accent);
+  box-shadow: var(--shadow-card);
 }
 
 /* depth overlay — GSAP fades this in as the card slips behind the next one */
@@ -231,14 +364,16 @@ body {
 }
 
 .work-card-btn {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--accent) 92%, white 8%),
-    color-mix(in srgb, var(--accent) 60%, black 40%)
-  );
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.25) inset,
-    0 18px 40px -16px color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: var(--radius-btn);
+  border: none;
+  background: var(--purple-btn);
+  font-weight: 500;
+  box-shadow: none;
+  transition: background-color 0.2s;
+}
+
+.work-card-btn:hover {
+  background: var(--purple-btn-hover);
 }
 
 @media (min-width: 768px) {

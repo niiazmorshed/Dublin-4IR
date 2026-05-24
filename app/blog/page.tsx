@@ -16,7 +16,7 @@ export default function BlogPage() {
   return (
     <main className="mx-auto max-w-[1100px] px-6 pb-24 pt-20 min-[960px]:px-10 min-[960px]:pt-28">
       <header className="max-w-[60ch]">
-        <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--text-muted)] uppercase">
+        <p className="section-eyebrow">
           Blog
         </p>
         <h1 className="mt-3 text-[clamp(2rem,5vw,3rem)] font-bold tracking-[-0.03em] text-[var(--text)]">
@@ -34,9 +34,9 @@ export default function BlogPage() {
           <li key={post.slug}>
             <Link
               href={`/blog/${post.slug}`}
-              className="group flex h-full flex-col rounded-2xl border border-[var(--border-soft)] bg-[linear-gradient(165deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.02)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition-colors hover:border-[var(--border-strong)] hover:bg-white/[0.05]"
+              className="group surface-card-sm flex h-full flex-col p-6 transition-colors hover:border-[var(--border-strong)] hover:bg-[rgba(255,255,255,0.08)]"
             >
-              <span className="inline-flex w-fit rounded-full border border-[var(--border-soft)] bg-white/[0.04] px-3 py-1 text-[11px] font-semibold tracking-[0.08em] text-[var(--text-muted)] uppercase">
+              <span className="inline-flex w-fit rounded-full border border-[var(--border-soft)] bg-[var(--surface-tint)] px-3 py-1 text-[11px] font-semibold tracking-[0.08em] text-[var(--text-muted)] uppercase">
                 {post.category}
               </span>
               <h2 className="mt-4 text-[18px] font-semibold leading-snug tracking-[-0.01em] text-[var(--text)]">

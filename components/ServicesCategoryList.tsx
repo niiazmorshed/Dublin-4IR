@@ -18,7 +18,7 @@ export default function ServicesCategoryList() {
         {SERVICE_CATEGORIES.map((cat, i) => (
           <article
             key={cat.slug}
-            className="stagger-item group relative overflow-hidden rounded-2xl border border-[rgba(220,215,232,0.1)] bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.02)_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] min-[960px]:p-5"
+            className="stagger-item surface-card-sm group relative overflow-hidden p-4 min-[960px]:p-5"
             style={{ "--i": i } as CSSProperties}
           >
             <div className="flex gap-3 min-[960px]:gap-4">

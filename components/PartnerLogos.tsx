@@ -21,7 +21,7 @@ export default function PartnerLogos() {
       <div className="grid grid-cols-2 items-center gap-6 opacity-55 min-[960px]:grid-cols-4">
         {PARTNERS.map((p) => (
           <div key={p.name} className="group p-3 text-center transition-opacity">
-            <div className="text-[17px] font-bold tracking-[-0.01em] text-white/50 transition-colors group-hover:text-white/90">
+            <div className="text-[17px] font-bold tracking-[-0.01em] text-[var(--text-muted)] transition-colors group-hover:text-[var(--text)]">
               {p.name}
             </div>
             <span className="mt-0.5 block text-[10px] font-medium tracking-[0.12em] uppercase opacity-70">
