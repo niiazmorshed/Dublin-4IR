@@ -11,7 +11,7 @@ export default function ServicesSection() {
       className="relative mx-auto max-w-[1240px] px-6 py-16 min-[960px]:px-10 min-[960px]:py-20"
     >
       <header className="mb-12 text-center min-[960px]:mb-14">
-        <div className="mb-3 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.16em] text-[var(--text-muted)] uppercase">
+        <div className="section-eyebrow mb-3">
           <span className="text-[var(--purple-2)]" aria-hidden>
             ✦
           </span>
@@ -31,7 +31,7 @@ export default function ServicesSection() {
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-10">
         <div className="flex flex-col gap-5">
-          <div className="rounded-2xl border border-[rgba(220,215,232,0.1)] bg-[linear-gradient(165deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.02)_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] min-[960px]:p-6">
+          <div className="surface-card-sm p-5 min-[960px]:p-6">
             <p className="text-[11px] font-semibold tracking-[0.14em] text-[var(--text-dim)] uppercase">
               At a glance
             </p>
@@ -61,7 +61,7 @@ export default function ServicesSection() {
               </li>
             </ul>
           </div>
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[rgba(220,215,232,0.1)] bg-[rgba(255,255,255,0.02)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.6)]">
+          <div className="surface-card relative aspect-[4/3] w-full overflow-hidden">
             <Image
               src="/tech3.jpg"
               alt=""

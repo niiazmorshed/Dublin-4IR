@@ -11,7 +11,7 @@ export default function HowWeWork() {
       className="relative mx-auto max-w-[1240px] px-6 py-16 min-[960px]:px-10 min-[960px]:py-24"
     >
       <header className="mb-12 text-center min-[960px]:mb-16">
-        <div className="mb-3 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.16em] text-[var(--text-muted)] uppercase">
+        <div className="section-eyebrow mb-3">
           <span className="text-[var(--purple-2)]" aria-hidden>
             ✦
           </span>

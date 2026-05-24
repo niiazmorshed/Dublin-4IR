@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 
 const fieldClass =
-  "w-full rounded-xl border border-[var(--border-soft)] bg-white/[0.03] px-4 py-3 text-[15px] text-[var(--text)] placeholder:text-[var(--text-dim)] transition-colors focus:border-[var(--border-strong)] focus:bg-white/[0.05] focus:outline-none";
+  "w-full rounded-xl border border-[var(--border-soft)] bg-[var(--surface-tint)] px-4 py-3 text-[15px] text-[var(--text)] placeholder:text-[var(--text-dim)] transition-colors focus:border-[var(--border-strong)] focus:bg-[rgba(255,255,255,0.08)] focus:outline-none";
 const labelClass = "mb-2 block text-[13px] font-medium text-[var(--text-muted)]";
 
 const BUDGET_OPTIONS = [
@@ -26,7 +26,7 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-[var(--border-soft)] bg-[linear-gradient(165deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.02)_100%)] p-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+      <div className="surface-card p-8 text-center">
         <h2 className="text-[20px] font-semibold text-[var(--text)]">Thanks — message received</h2>
         <p className="mx-auto mt-3 max-w-[44ch] text-[15px] leading-relaxed text-[var(--text-dim)]">
           We&apos;ll be in touch within one business day with next steps. In the meantime, feel free
@@ -35,7 +35,7 @@ export default function ContactForm() {
         <button
           type="button"
           onClick={() => setSubmitted(false)}
-          className="mt-6 inline-flex rounded-full border border-[var(--border-strong)] bg-white/[0.04] px-5 py-2.5 text-[14px] font-semibold text-[var(--text)] transition-colors hover:bg-white/[0.08]"
+          className="btn-secondary"
         >
           Send another message
         </button>
@@ -46,7 +46,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-[var(--border-soft)] bg-[linear-gradient(165deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.02)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] min-[960px]:p-8"
+      className="surface-card p-6 min-[960px]:p-8"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
@@ -113,7 +113,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/[0.18] bg-[linear-gradient(180deg,#5d3fd6_0%,#5c43c3_60%,#332760_100%)] px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_18px_40px_-14px_var(--purple-glow)] transition duration-200 hover:-translate-y-px hover:shadow-[0_24px_50px_-14px_var(--purple-glow)] sm:w-auto"
+        className="btn-primary mt-6 w-full sm:w-auto"
       >
         Send message
         <span aria-hidden>→</span>

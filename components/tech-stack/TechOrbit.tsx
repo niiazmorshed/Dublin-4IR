@@ -62,7 +62,7 @@ function SolarRing({
 
   return (
     <div
-      className="orbit-ring pointer-events-none absolute left-1/2 top-1/2 rounded-full border border-[rgba(220,215,232,0.14)] shadow-[0_0_40px_-20px_rgba(93,63,214,0.25)]"
+      className="orbit-ring pointer-events-none absolute left-1/2 top-1/2 rounded-full border border-[var(--border-soft)] shadow-[var(--shadow-card)]"
       style={{
         width: diameter,
         height: diameter,

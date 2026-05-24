@@ -155,7 +155,7 @@ export default function ProjectStack() {
                     {project.name}
                   </h3>
 
-                  <p className="max-w-[460px] text-[15px] leading-relaxed text-[var(--text-muted)]">
+                  <p className="max-w-[460px] text-[15px] leading-relaxed text-white">
                     {project.description}
                   </p>
 
@@ -164,7 +164,7 @@ export default function ProjectStack() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit the live site for ${project.name} (opens in a new tab)`}
-                    className="work-card-btn group/btn mt-1 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-[14px] font-semibold text-white transition-transform duration-200 hover:-translate-y-px"
+                    className="work-card-btn group/btn mt-1 inline-flex w-fit items-center gap-2 px-5 py-3 text-[14px] text-white"
                   >
                     Visit live site
                     <ExternalArrow />
@@ -183,9 +183,9 @@ export default function ProjectStack() {
                       background: `radial-gradient(60% 55% at 70% 40%, color-mix(in srgb, ${project.accent} 36%, transparent), transparent 70%)`,
                     }}
                   />
-                  <figure className="relative w-full max-w-[560px] overflow-hidden rounded-[14px] border border-[var(--border-strong)] bg-[#0c0a16] shadow-[0_24px_60px_-24px_rgba(0,0,0,0.85)]">
+                  <figure className="relative w-full max-w-[560px] overflow-hidden rounded-[14px] border border-[var(--border-soft)] bg-[var(--surface-sidebar)] shadow-[var(--shadow-card)]">
                     {/* browser chrome */}
-                    <figcaption className="flex items-center gap-2 border-b border-[var(--border-soft)] bg-white/[0.04] px-3.5 py-2.5">
+                    <figcaption className="flex items-center gap-2 border-b border-[var(--border-soft)] bg-[var(--surface-tint)] px-3.5 py-2.5">
                       <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                       <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                       <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />

@@ -12,7 +12,7 @@ export default function TechStack() {
     >
       <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:grid-cols-12 lg:gap-5">
         {/* Left: orbit — "Every Stack Ever" */}
-        <div className="flex min-h-0 flex-col rounded-2xl border border-[rgba(220,215,232,0.1)] bg-[linear-gradient(165deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.015)_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-6 lg:col-span-5 lg:row-span-2 lg:min-h-[440px]">
+        <div className="surface-card-sm flex min-h-0 flex-col p-5 sm:p-6 lg:col-span-5 lg:row-span-2 lg:min-h-[440px]">
           <p className="text-[11px] font-semibold tracking-[0.14em] text-[var(--text-dim)] uppercase">
             Technology
           </p>
@@ -36,7 +36,7 @@ export default function TechStack() {
         </div>
 
         {/* Middle top: blue CTA */}
-        <div className="flex flex-col justify-between rounded-2xl border border-[rgba(93,63,214,0.35)] bg-[linear-gradient(145deg,#5d3fd6_0%,#4a32c4_50%,#332760_100%)] p-5 text-white shadow-[0_24px_48px_-24px_rgba(93,63,214,0.55)] sm:p-6 lg:col-span-4 lg:col-start-6">
+        <div className="surface-card-accent-solid flex flex-col justify-between p-5 text-white sm:p-6 lg:col-span-4 lg:col-start-6">
           <div>
             <p className="text-[13px] font-semibold leading-snug text-white/95 sm:text-[15px]">
               Quick access to vetted delivery teams
@@ -57,7 +57,7 @@ export default function TechStack() {
         </div>
 
         {/* Middle bottom: image + copy */}
-        <div className="flex flex-col overflow-hidden rounded-2xl border border-[rgba(220,215,232,0.1)] bg-[rgba(12,10,22,0.6)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] lg:col-span-4 lg:col-start-6">
+        <div className="surface-card flex flex-col overflow-hidden lg:col-span-4 lg:col-start-6">
           <div className="p-5 pb-3 sm:p-6 sm:pb-4">
             <h3 className="text-lg font-bold tracking-tight text-[var(--text)]">
               Zero administrative{" "}
@@ -83,7 +83,7 @@ export default function TechStack() {
         </div>
 
         {/* Right: engagements + portal visual */}
-        <div className="flex flex-col overflow-hidden rounded-2xl border border-[rgba(220,215,232,0.1)] bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.01)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] lg:col-span-3 lg:col-start-10 lg:row-span-2 lg:row-start-1">
+        <div className="surface-card flex flex-col overflow-hidden lg:col-span-3 lg:col-start-10 lg:row-span-2 lg:row-start-1">
           <div className="p-5 sm:p-6">
             <h3 className="text-[clamp(1.125rem,2.5vw,1.375rem)] font-bold leading-snug tracking-[-0.02em] text-[var(--text)]">
               <span className={`${serifItalic} text-[var(--text-muted)]`}>Flexible</span> and hassle-free{" "}

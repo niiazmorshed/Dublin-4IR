@@ -21,7 +21,7 @@ function IconTile({ children }: { children: React.ReactNode }) {
 }
 
 const NODE_BASE =
-  "absolute flex items-center gap-2.5 rounded-[14px] border border-[var(--border-strong)] bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.02)_100%)] px-3.5 py-3 text-[var(--text)] shadow-[0_1px_0_rgba(255,255,255,0.06)_inset,0_20px_50px_-20px_rgba(0,0,0,0.7)] backdrop-blur-[14px]";
+  "absolute flex items-center gap-2.5 rounded-[14px] border border-[var(--border-soft)] bg-[var(--surface-tint)] px-3.5 py-3 text-[var(--text)] shadow-[var(--shadow-card)] backdrop-blur-[14px]";
 
 function Constellation() {
   return (
@@ -180,7 +180,7 @@ function Constellation() {
       </div>
 
       {/* bottom-center: chip */}
-      <div className="absolute bottom-[8%] left-1/2 -ml-[70px] inline-flex items-center gap-2 rounded-[14px] border border-[var(--border-strong)] bg-white/[0.06] px-4 py-2.5 text-[12px] font-semibold tracking-[0.04em] whitespace-nowrap text-[var(--text-muted)] uppercase">
+      <div className="absolute bottom-[8%] left-1/2 -ml-[70px] inline-flex items-center gap-2 rounded-[14px] border border-[var(--border-soft)] bg-[var(--surface-tint)] px-4 py-2.5 text-[12px] font-semibold tracking-[0.04em] whitespace-nowrap text-[var(--text-muted)] uppercase shadow-[var(--shadow-card)]">
         <span className="text-[var(--purple-2)]">▸</span> Dublin Gov
       </div>
 
@@ -199,51 +199,31 @@ function Constellation() {
 
 export default function HeroSection() {
   return (
-    <section className="relative mx-auto grid max-w-[1240px] grid-cols-1 items-center gap-10 px-6 pt-10 pb-6 min-[960px]:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] min-[960px]:px-10 min-[960px]:pt-20 min-[960px]:pb-[60px]">
+    <section className="relative mx-auto grid max-w-[1240px] grid-cols-1 items-start gap-10 px-6 pt-10 pb-6 min-[960px]:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] min-[960px]:px-10 min-[960px]:pt-16 min-[960px]:pb-[60px]">
       <div className="pointer-events-none absolute -top-[10%] -right-[10%] -z-10 h-[700px] w-[700px] bg-[radial-gradient(circle,rgba(93,63,214,0.42)_0%,rgba(93,63,214,0)_60%)] blur-[20px]" />
 
-      <div>
-        <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-white/[0.03] py-[7px] pr-3.5 pl-3 text-[13px] text-[var(--text-muted)] backdrop-blur-[8px]">
-          <span className="h-[7px] w-[7px] rounded-full bg-[var(--warm)] shadow-[0_0_10px_var(--warm)]" />
+      <div className="pt-2 min-[960px]:pt-8">
+        <div className="mb-5 inline-flex items-center rounded-full border border-[var(--border-strong)] px-3.5 py-1.5 text-[13px] text-[var(--text-muted)]">
           Ireland&apos;s Digital Partner
         </div>
-        <h1 className="text-[clamp(44px,5.4vw,76px)] leading-[1.02] font-bold tracking-[-0.035em] text-[var(--text)]">
+        <h1 className="max-w-[13ch] bg-gradient-to-b from-white from-0% via-[#ddd6f0] via-[40%] to-[#7a6bb8] to-100% bg-clip-text text-[clamp(2.25rem,4.6vw,4rem)] font-bold leading-[1.06] tracking-[-0.03em] text-transparent [-webkit-text-fill-color:transparent]">
           Accelerate Your Digital Future
-          <span className="block bg-[linear-gradient(180deg,#dcd7e8_0%,#998ccd_25%,#5d3fd6_60%,#5c43c3_100%)] bg-clip-text text-transparent">
-            Web &amp; App Solutions
-          </span>
         </h1>
-        <p className="mt-[26px] max-w-[510px] text-[17px] leading-[1.55] text-[var(--text-muted)]">
+        <p className="mt-5 max-w-[480px] text-[17px] leading-[1.55] text-white">
           Bridging Ireland&apos;s digital ambitions with world-class development
           — delivering government and enterprise projects with precision and
           speed.
         </p>
-        <div id="start" className="mt-9 flex scroll-mt-28 items-center gap-3.5">
-          <a
-            href="#start"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/[0.18] bg-[linear-gradient(180deg,#5d3fd6_0%,#5c43c3_60%,#332760_100%)] px-7 py-4 text-[15px] font-semibold text-white shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_18px_40px_-14px_var(--purple-glow)] transition duration-200 hover:-translate-y-px hover:shadow-[0_24px_50px_-14px_var(--purple-glow)]"
-          >
+        <div id="start" className="mt-6 flex scroll-mt-28 items-center gap-3.5">
+          <a href="#contact" className="btn-primary">
             Start a Project
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              className="transition-transform duration-200 group-hover:translate-x-[3px]"
-            >
-              <path
-                d="M3 8h10M9 4l4 4-4 4"
-                stroke="white"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
           </a>
         </div>
       </div>
 
-      <Constellation />
+      <div className="min-[960px]:self-center">
+        <Constellation />
+      </div>
     </section>
   );
 }

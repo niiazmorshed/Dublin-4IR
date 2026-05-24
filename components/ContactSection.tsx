@@ -41,8 +41,8 @@ export default function ContactSection() {
         <span key={cat.slug} id={`contact-${cat.slug}`} className="sr-only" tabIndex={-1} />
       ))}
 
-      <div className="rounded-2xl border border-[rgba(220,215,232,0.1)] bg-[linear-gradient(165deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.02)_100%)] px-6 py-10 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] min-[960px]:px-12 min-[960px]:py-12">
-        <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--text-muted)] uppercase">
+      <div className="surface-card px-6 py-10 text-center min-[960px]:px-12 min-[960px]:py-12">
+        <p className="section-eyebrow">
           Contact
         </p>
         <h2
@@ -68,7 +68,7 @@ export default function ContactSection() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
             href="#start"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/[0.18] bg-[linear-gradient(180deg,#5d3fd6_0%,#5c43c3_60%,#332760_100%)] px-7 py-3.5 text-[14px] font-semibold text-white shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_18px_40px_-14px_var(--purple-glow)] transition duration-200 hover:-translate-y-px hover:shadow-[0_24px_50px_-14px_var(--purple-glow)]"
+            className="btn-primary btn-primary-sm group"
           >
             Start a project
             <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">
@@ -77,7 +77,7 @@ export default function ContactSection() {
           </a>
           <a
             href="mailto:hello@dublin4ir.com?subject=Project%20enquiry"
-            className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-white/[0.04] px-6 py-3.5 text-[14px] font-semibold text-[var(--text)] backdrop-blur-[10px] transition-colors hover:border-[rgba(220,215,232,0.22)] hover:bg-white/[0.08]"
+            className="btn-secondary"
           >
             Email us
           </a>
