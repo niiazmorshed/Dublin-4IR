@@ -1,3 +1,4 @@
+import ImpactStats from "@/components/ImpactStats";
 import ContactSection from "@/components/ContactSection";
 import HeroSection from "@/components/HeroSection";
 import HowWeWork from "@/components/HowWeWork";
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <HeroSection />
       <PartnerLogos />
+      <ImpactStats />
       <ServicesSection />
       <OurWorks />
       <TechStack />
