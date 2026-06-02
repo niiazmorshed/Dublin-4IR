@@ -69,7 +69,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-1 min-[960px]:flex">
           <NavLink href="/#services">Services</NavLink>
           <NavLink href="/#projects">Projects</NavLink>
-          <NavLink href="/#about">About</NavLink>
+          <NavLink href="/about">About</NavLink>
           <NavLink href="/blog">Blog</NavLink>
           <NavLink href="/contact">Contact</NavLink>
         </div>
