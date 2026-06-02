@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { sendContactEmail } from "@/services/email/contact";
 
 const fieldClass =
@@ -21,9 +21,15 @@ export default function ContactForm() {
   const [budget, setBudget] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [budgetError, setBudgetError] = useState(false);
+  // Synchronous guard against double submission. The `disabled` attribute only
+  // takes effect after React commits the re-render, leaving a brief window where
+  // a fast double-click could fire two sends — this ref blocks that immediately.
+  const submittingRef = useRef(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (submittingRef.current) return;
 
     if (!budget) {
       setBudgetError(true);
@@ -33,6 +39,7 @@ export default function ContactForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
 
+    submittingRef.current = true;
     setStatus("sending");
     try {
       await sendContactEmail({
@@ -48,6 +55,8 @@ export default function ContactForm() {
     } catch (error) {
       console.error("Contact form submission failed:", error);
       setStatus("error");
+    } finally {
+      submittingRef.current = false;
     }
   }
 
