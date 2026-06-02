@@ -26,7 +26,7 @@ const PROJECTS: Project[] = [
       "A fast, content-first web platform with a clean reading experience and responsive layouts across every device.",
     liveUrl: "https://www.fineanswer.net",
     image: fineAnswer,
-    accent: "#5d3fd6",
+    accent: "#33bbcf",
   },
   {
     name: "Irish Bangla",

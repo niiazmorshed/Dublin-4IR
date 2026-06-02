@@ -48,7 +48,7 @@ export default function ServicesCategoryList() {
               </div>
             </div>
             <div
-              className="pointer-events-none absolute bottom-0 left-3 right-3 h-px rounded-full bg-[linear-gradient(90deg,transparent,rgba(93,63,214,0.9),rgba(153,140,205,0.7),transparent)] opacity-70 min-[960px]:left-4 min-[960px]:right-4"
+              className="pointer-events-none absolute bottom-0 left-3 right-3 h-px rounded-full bg-[linear-gradient(90deg,transparent,rgba(51,187,207,0.9),rgba(93,212,224,0.7),transparent)] opacity-70 min-[960px]:left-4 min-[960px]:right-4"
               aria-hidden
             />
           </article>

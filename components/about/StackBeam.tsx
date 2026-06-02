@@ -128,9 +128,9 @@ export default function StackBeam() {
                   x2="1"
                   y2="0"
                 >
-                  <stop offset="0" stopColor="#5d3fd6" stopOpacity="0" />
+                  <stop offset="0" stopColor="#33bbcf" stopOpacity="0" />
                   <stop offset="0.5" stopColor="#b9aaff" stopOpacity="1" />
-                  <stop offset="1" stopColor="#5d3fd6" stopOpacity="0" />
+                  <stop offset="1" stopColor="#33bbcf" stopOpacity="0" />
                   <animateTransform
                     attributeName="gradientTransform"
                     type="translate"
@@ -179,7 +179,7 @@ export default function StackBeam() {
           {/* center hub */}
           <div
             ref={hubRef}
-            className="relative z-10 grid h-[88px] w-[88px] place-items-center rounded-[24px] border border-[rgba(153,140,205,0.4)] bg-[radial-gradient(circle_at_30%_30%,rgba(153,140,205,0.55),transparent_60%),linear-gradient(160deg,#332760_0%,#161139_100%)] shadow-[0_0_0_1px_rgba(220,215,232,0.06)_inset,0_0_70px_0_rgba(93,63,214,0.55)] min-[560px]:h-[104px] min-[560px]:w-[104px]"
+            className="relative z-10 grid h-[88px] w-[88px] place-items-center rounded-[24px] border border-[rgba(51,187,207,0.4)] bg-[radial-gradient(circle_at_30%_30%,rgba(51,187,207,0.45),transparent_60%),linear-gradient(160deg,#0d3d48_0%,#0a1628_100%)] shadow-[0_0_0_1px_rgba(176,192,204,0.06)_inset,0_0_70px_0_rgba(51,187,207,0.45)] min-[560px]:h-[104px] min-[560px]:w-[104px]"
           >
             <div className="bg-[linear-gradient(180deg,#fff_0%,#dcd7e8_100%)] bg-clip-text text-[30px] font-extrabold tracking-[-0.04em] text-transparent min-[560px]:text-[36px]">
               D4

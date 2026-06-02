@@ -71,7 +71,7 @@ export default function ServicesSection() {
               priority={false}
             />
             <div
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(14,11,25,0.2)_0%,transparent_50%,rgba(93,63,214,0.12)_100%)]"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(0,4,15,0.2)_0%,transparent_50%,rgba(51,187,207,0.1)_100%)]"
               aria-hidden
             />
           </div>

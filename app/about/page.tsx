@@ -26,7 +26,7 @@ export default function AboutPage() {
           <div className="surface-card-accent relative mx-auto max-w-[1000px] overflow-hidden px-8 py-16 text-center min-[960px]:px-16">
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_0%,rgba(93,63,214,0.3),transparent_70%)]"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_0%,rgba(51,187,207,0.22),transparent_70%)]"
             />
             <h2 className="relative text-[clamp(1.9rem,4vw,3rem)] font-bold leading-[1.1] tracking-[-0.03em] text-[var(--text)]">
               Let&apos;s build something that lasts.
