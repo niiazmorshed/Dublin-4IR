@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
+import { sendContactEmail } from "@/services/email/contact";
 
 const fieldClass =
   "w-full rounded-xl border border-[var(--border-soft)] bg-[var(--surface-tint)] px-4 py-3 text-[15px] text-[var(--text)] placeholder:text-[var(--text-dim)] transition-colors focus:border-[var(--border-strong)] focus:bg-[rgba(255,255,255,0.08)] focus:outline-none";
@@ -14,17 +15,52 @@ const BUDGET_OPTIONS = [
   "Not sure yet",
 ];
 
-export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+type Status = "idle" | "sending" | "success" | "error";
 
-  // Placeholder handler — no backend yet. Wire this to a server action or
-  // /services endpoint (email/CRM) when one is available.
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+export default function ContactForm() {
+  const [budget, setBudget] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+  const [budgetError, setBudgetError] = useState(false);
+  // Synchronous guard against double submission. The `disabled` attribute only
+  // takes effect after React commits the re-render, leaving a brief window where
+  // a fast double-click could fire two sends — this ref blocks that immediately.
+  const submittingRef = useRef(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+
+    if (submittingRef.current) return;
+
+    if (!budget) {
+      setBudgetError(true);
+      return;
+    }
+
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
+    submittingRef.current = true;
+    setStatus("sending");
+    try {
+      await sendContactEmail({
+        name: String(data.get("name") ?? ""),
+        email: String(data.get("email") ?? ""),
+        company: String(data.get("company") ?? "").trim() || "—",
+        budget,
+        message: String(data.get("message") ?? ""),
+      });
+      form.reset();
+      setBudget("");
+      setStatus("success");
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
+      setStatus("error");
+    } finally {
+      submittingRef.current = false;
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div className="surface-card p-8 text-center">
         <h2 className="text-[20px] font-semibold text-[var(--text)]">Thanks — message received</h2>
@@ -34,8 +70,8 @@ export default function ContactForm() {
         </p>
         <button
           type="button"
-          onClick={() => setSubmitted(false)}
-          className="btn-secondary"
+          onClick={() => setStatus("idle")}
+          className="btn-secondary mt-6"
         >
           Send another message
         </button>
@@ -43,11 +79,10 @@ export default function ContactForm() {
     );
   }
 
+  const sending = status === "sending";
+
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="surface-card p-6 min-[960px]:p-8"
-    >
+    <form onSubmit={handleSubmit} className="surface-card p-6 min-[960px]:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
@@ -68,7 +103,7 @@ export default function ContactForm() {
             className={fieldClass}
           />
         </div>
-        <div>
+        <div className="sm:col-span-2">
           <label htmlFor="company" className={labelClass}>
             Company <span className="text-[var(--text-dim)]">(optional)</span>
           </label>
@@ -80,22 +115,38 @@ export default function ContactForm() {
             className={fieldClass}
           />
         </div>
-        <div>
-          <label htmlFor="budget" className={labelClass}>
-            Estimated budget
-          </label>
-          <select id="budget" name="budget" defaultValue="" required className={fieldClass}>
-            <option value="" disabled>
-              Select a range
-            </option>
-            {BUDGET_OPTIONS.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </div>
       </div>
+
+      <fieldset className="mt-5">
+        <legend className={labelClass}>Estimated budget</legend>
+        <div role="radiogroup" aria-label="Estimated budget" className="flex flex-wrap gap-2.5">
+          {BUDGET_OPTIONS.map((option) => {
+            const selected = budget === option;
+            return (
+              <button
+                key={option}
+                type="button"
+                role="radio"
+                aria-checked={selected}
+                onClick={() => {
+                  setBudget(option);
+                  setBudgetError(false);
+                }}
+                className={`rounded-full border px-4 py-2 text-[14px] font-medium transition-colors ${
+                  selected
+                    ? "border-[var(--purple)] bg-[color-mix(in_srgb,var(--purple)_22%,transparent)] text-[var(--text)]"
+                    : "border-[var(--border-soft)] bg-[var(--surface-tint)] text-[var(--text-muted)] hover:border-[var(--border-strong)] hover:text-[var(--text)]"
+                }`}
+              >
+                {option}
+              </button>
+            );
+          })}
+        </div>
+        {budgetError && (
+          <p className="mt-2 text-[13px] text-[#ff9a9a]">Please select an estimated budget.</p>
+        )}
+      </fieldset>
 
       <div className="mt-5">
         <label htmlFor="message" className={labelClass}>
@@ -111,12 +162,19 @@ export default function ContactForm() {
         />
       </div>
 
-      <button
-        type="submit"
-        className="btn-primary mt-6 w-full sm:w-auto"
-      >
-        Send message
-        <span aria-hidden>→</span>
+      {status === "error" && (
+        <p className="mt-5 text-[14px] text-[#ff9a9a]">
+          Something went wrong sending your message. Please try again, or email us directly at{" "}
+          <a href="mailto:hello@dublin4ir.com" className="underline underline-offset-4">
+            hello@dublin4ir.com
+          </a>
+          .
+        </p>
+      )}
+
+      <button type="submit" disabled={sending} className="btn-primary mt-6 w-full disabled:opacity-60 sm:w-auto">
+        {sending ? "Sending…" : "Send message"}
+        {!sending && <span aria-hidden>→</span>}
       </button>
     </form>
   );
