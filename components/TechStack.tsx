@@ -98,8 +98,8 @@ export default function TechStack() {
               className="pointer-events-none absolute inset-0 flex items-center justify-center"
               aria-hidden
             >
-              <div className="h-[72%] w-[72%] rounded-full bg-[radial-gradient(circle,rgba(93,63,214,0.45)_0%,rgba(93,63,214,0.08)_45%,transparent_70%)] blur-md" />
-              <div className="absolute h-[52%] w-[52%] rounded-full border border-[rgba(93,63,214,0.5)] shadow-[0_0_60px_-8px_rgba(93,63,214,0.75),inset_0_0_40px_-10px_rgba(93,63,214,0.35)]" />
+              <div className="h-[72%] w-[72%] rounded-full bg-[radial-gradient(circle,rgba(51,187,207,0.45)_0%,rgba(51,187,207,0.08)_45%,transparent_70%)] blur-md" />
+              <div className="absolute h-[52%] w-[52%] rounded-full border border-[rgba(51,187,207,0.5)] shadow-[0_0_60px_-8px_rgba(51,187,207,0.75),inset_0_0_40px_-10px_rgba(51,187,207,0.35)]" />
               <div className="absolute h-[38%] w-[38%] rounded-full bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,255,255,0.25)_0%,transparent_50%)] opacity-70" />
             </div>
             <div className="relative z-[1] h-[170px] w-full max-w-[92%] sm:h-[200px]">

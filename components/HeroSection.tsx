@@ -1,3 +1,5 @@
+import HeroVantaBackground from "@/components/HeroVantaBackground";
+
 function PinIcon() {
   return (
     <svg width="9" height="9" viewBox="0 0 24 24" fill="none">
@@ -14,7 +16,7 @@ function PinIcon() {
 
 function IconTile({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grid h-8 w-8 shrink-0 place-items-center rounded-[9px] bg-[linear-gradient(135deg,#998ccd,#5d3fd6_70%,#332760)] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.1)_inset]">
+    <div className="grid h-8 w-8 shrink-0 place-items-center rounded-[9px] bg-[var(--gradient-icon)] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.1)_inset]">
       {children}
     </div>
   );
@@ -38,8 +40,8 @@ function Constellation() {
       >
         <defs>
           <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#998ccd" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#998ccd" stopOpacity="0.06" />
+            <stop offset="0%" stopColor="#5dd4e0" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#5dd4e0" stopOpacity="0.06" />
           </linearGradient>
         </defs>
         <path
@@ -81,9 +83,9 @@ function Constellation() {
       </svg>
 
       {/* central hub */}
-      <div className="absolute top-1/2 left-1/2 grid h-[132px] w-[132px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[26px] border border-[rgba(153,140,205,0.4)] bg-[radial-gradient(circle_at_30%_30%,rgba(153,140,205,0.55),transparent_60%),linear-gradient(160deg,#332760_0%,#161139_100%)] shadow-[0_0_0_1px_rgba(220,215,232,0.06)_inset,0_0_80px_0_rgba(93,63,214,0.55),0_30px_80px_-20px_rgba(93,63,214,0.7)]">
-        <div className="pointer-events-none absolute -inset-10 -z-10 bg-[radial-gradient(circle,rgba(93,63,214,0.35)_0%,transparent_60%)] blur-[20px]" />
-        <div className="bg-[linear-gradient(180deg,#fff_0%,#dcd7e8_100%)] bg-clip-text text-[44px] font-extrabold tracking-[-0.04em] text-transparent">
+      <div className="absolute top-1/2 left-1/2 grid h-[132px] w-[132px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[26px] border border-[rgba(51,187,207,0.4)] bg-[radial-gradient(circle_at_30%_30%,rgba(51,187,207,0.45),transparent_60%),linear-gradient(160deg,#0d3d48_0%,#0a1628_100%)] shadow-[0_0_0_1px_rgba(176,192,204,0.08)_inset,0_0_80px_0_rgba(51,187,207,0.45),0_30px_80px_-20px_rgba(51,187,207,0.55)]">
+        <div className="pointer-events-none absolute -inset-10 -z-10 bg-[radial-gradient(circle,rgba(51,187,207,0.3)_0%,transparent_60%)] blur-[20px]" />
+        <div className="bg-[linear-gradient(180deg,#fff_0%,#c8f0f4_100%)] bg-clip-text text-[44px] font-extrabold tracking-[-0.04em] text-transparent">
           D4
         </div>
       </div>
@@ -115,7 +117,7 @@ function Constellation() {
       <div
         className={`${NODE_BASE} top-[2%] right-[24%] animate-[float-c_5.5s_ease-in-out_infinite] gap-2 rounded-full py-[6px] pr-2.5 pl-[6px]`}
       >
-        <div className="h-7 w-7 shrink-0 rounded-full border-[1.5px] border-white/[0.15] bg-[linear-gradient(135deg,#b68072,#5c43c3)]" />
+        <div className="h-7 w-7 shrink-0 rounded-full border-[1.5px] border-white/[0.15] bg-[linear-gradient(135deg,#e8a87c,#2a9eb0)]" />
         <div className="text-[11.5px] font-medium text-[var(--text-muted)]">
           Senior Engineer in Dhaka
         </div>
@@ -141,8 +143,8 @@ function Constellation() {
         >
           <defs>
             <linearGradient id="chartg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#998ccd" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#998ccd" stopOpacity="0" />
+              <stop offset="0%" stopColor="#5dd4e0" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#5dd4e0" stopOpacity="0" />
             </linearGradient>
           </defs>
           <path
@@ -151,7 +153,7 @@ function Constellation() {
           />
           <path
             d="M0,22 L18,20 L32,21 L50,16 L66,18 L82,12 L98,14 L114,8 L130,9 L140,4"
-            stroke="#998ccd"
+            stroke="#5dd4e0"
             strokeWidth="1.4"
             fill="none"
             strokeLinecap="round"
@@ -167,7 +169,7 @@ function Constellation() {
         <div className="grid h-[18px] w-[18px] shrink-0 place-items-center rounded-full bg-[var(--warm)] text-[10px] font-extrabold text-[var(--bg)]">
           ✓
         </div>
-        <div className="h-[34px] w-[34px] shrink-0 rounded-full border-[1.5px] border-white/[0.15] bg-[linear-gradient(135deg,#998ccd,#5d3fd6)]" />
+        <div className="h-[34px] w-[34px] shrink-0 rounded-full border-[1.5px] border-white/[0.15] bg-[var(--gradient-icon)]" />
         <div>
           <div className="text-[13.5px] leading-[1.2] font-semibold whitespace-nowrap">
             Project Lead
@@ -188,7 +190,7 @@ function Constellation() {
       <div
         className={`${NODE_BASE} right-[8%] bottom-[4%] animate-[float-c_6s_ease-in-out_infinite] gap-2 rounded-full py-[6px] pr-3 pl-[6px]`}
       >
-        <div className="h-7 w-7 shrink-0 rounded-full border-[1.5px] border-white/[0.15] bg-[linear-gradient(135deg,#dcd7e8,#b68072)]" />
+        <div className="h-7 w-7 shrink-0 rounded-full border-[1.5px] border-white/[0.15] bg-[linear-gradient(135deg,#c8f0f4,#e8a87c)]" />
         <div className="text-[11.5px] font-medium text-[var(--text-muted)]">
           Shipped to production
         </div>
@@ -199,17 +201,28 @@ function Constellation() {
 
 export default function HeroSection() {
   return (
-    <section className="relative mx-auto grid max-w-[1240px] grid-cols-1 items-start gap-10 px-6 pt-10 pb-6 min-[960px]:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] min-[960px]:px-10 min-[960px]:pt-16 min-[960px]:pb-[60px]">
-      <div className="pointer-events-none absolute -top-[10%] -right-[10%] -z-10 h-[700px] w-[700px] bg-[radial-gradient(circle,rgba(93,63,214,0.42)_0%,rgba(93,63,214,0)_60%)] blur-[20px]" />
+    <section className="relative isolate min-h-[560px] overflow-hidden">
+      <HeroVantaBackground />
+      {/* Dim the mesh behind hero copy; keep edges/right clearer for the 3D effect */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(0,4,15,0.2)_0%,rgba(0,4,15,0.28)_55%,rgba(0,4,15,0.65)_100%)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_85%_75%_at_22%_42%,rgba(0,4,15,0.78)_0%,rgba(0,4,15,0.52)_42%,transparent_68%)] min-[960px]:bg-[radial-gradient(ellipse_70%_80%_at_18%_45%,rgba(0,4,15,0.82)_0%,rgba(0,4,15,0.48)_40%,transparent_65%)]"
+      />
 
+      <div className="relative z-[2] mx-auto grid max-w-[1240px] grid-cols-1 items-start gap-10 px-6 pt-10 pb-6 min-[960px]:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] min-[960px]:px-10 min-[960px]:pt-16 min-[960px]:pb-[60px]">
       <div className="pt-2 min-[960px]:pt-8">
         <div className="mb-5 inline-flex items-center rounded-full border border-[var(--border-strong)] px-3.5 py-1.5 text-[13px] text-[var(--text-muted)]">
           Ireland&apos;s Digital Partner
         </div>
-        <h1 className="max-w-[13ch] bg-gradient-to-b from-white from-0% via-[#ddd6f0] via-[40%] to-[#7a6bb8] to-100% bg-clip-text text-[clamp(2.25rem,4.6vw,4rem)] font-bold leading-[1.06] tracking-[-0.03em] text-transparent [-webkit-text-fill-color:transparent]">
-          Accelerate Your Digital Future
+        <h1 className="max-w-[13ch] font-[family-name:var(--font-nasalization)] text-[clamp(2.25rem,4.6vw,4rem)] font-normal uppercase leading-[1.02] tracking-[0.04em] text-[var(--text)]">
+          Accelerate Your Digital{" "}
+          <span className="text-[var(--accent)]">Future</span>
         </h1>
-        <p className="mt-5 max-w-[480px] text-[17px] leading-[1.55] text-white">
+        <p className="mt-5 max-w-[480px] text-[17px] leading-[1.55] text-[var(--text-muted)]">
           Bridging Ireland&apos;s digital ambitions with world-class development
           — delivering government and enterprise projects with precision and
           speed.
@@ -223,6 +236,7 @@ export default function HeroSection() {
 
       <div className="min-[960px]:self-center">
         <Constellation />
+      </div>
       </div>
     </section>
   );

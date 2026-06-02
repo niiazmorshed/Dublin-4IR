@@ -188,7 +188,7 @@ export default function IndustriesBeans() {
         >
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(93,63,214,0.18),transparent_70%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(51,187,207,0.14),transparent_70%)]"
           />
           {INDUSTRIES.map((label, i) => (
             <div

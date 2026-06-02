@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
+
+const nasalization = localFont({
+  src: "./fonts/nasalization.woff",
+  variable: "--font-nasalization",
+  display: "swap",
+  weight: "400",
+});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -32,7 +40,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${playfair.variable} antialiased`}
+      className={`${inter.variable} ${playfair.variable} ${nasalization.variable} antialiased`}
     >
       <body>
         <Navbar />

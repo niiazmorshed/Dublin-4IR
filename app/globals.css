@@ -1,38 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0e0b19;
-  --bg-2: #161139;
+  --bg: #00040f;
+  --bg-2: #0a1628;
   --surface: rgba(255, 255, 255, 0.04);
   --surface-2: rgba(255, 255, 255, 0.06);
   --surface-tint: rgba(255, 255, 255, 0.05);
-  --surface-sidebar: #0a0812;
-  --border-soft: rgba(220, 215, 232, 0.08);
-  --border-strong: rgba(220, 215, 232, 0.16);
-  --border-accent: rgba(93, 63, 214, 0.28);
+  --surface-sidebar: #050810;
+  --border-soft: rgba(176, 192, 204, 0.1);
+  --border-strong: rgba(176, 192, 204, 0.18);
+  --border-accent: rgba(51, 187, 207, 0.32);
   --text: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.72);
-  --text-dim: #ffffff;
-  --purple: #5d3fd6;
-  --purple-btn: #5d3fd6;
-  --purple-btn-hover: #4f35c4;
-  --purple-2: #998ccd;
-  --purple-deep: #332760;
-  --purple-glow: rgba(93, 63, 214, 0.55);
-  --warm: #b68072;
-  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.22);
-  --shadow-card-accent: 0 24px 48px -24px rgba(93, 63, 214, 0.55);
+  --text-dim: #b0b0b0;
+  --accent: #33bbcf;
+  --accent-light: #5dd4e0;
+  --accent-bright: #00d2ff;
+  --accent-deep: #0d3d48;
+  --accent-glow: rgba(51, 187, 207, 0.5);
+  /* legacy names — mapped to cyan accent for existing components */
+  --purple: var(--accent);
+  --purple-btn: var(--accent);
+  --purple-btn-hover: #2aa3b5;
+  --purple-2: var(--accent-light);
+  --purple-deep: var(--accent-deep);
+  --purple-glow: var(--accent-glow);
+  --warm: #e8a87c;
+  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.35);
+  --shadow-card-accent: 0 24px 48px -24px rgba(51, 187, 207, 0.45);
   --gradient-surface-accent: linear-gradient(
     135deg,
-    rgba(93, 63, 214, 0.18) 0%,
-    rgba(51, 39, 96, 0.35) 100%
+    rgba(51, 187, 207, 0.14) 0%,
+    rgba(10, 61, 72, 0.4) 100%
   );
-  --gradient-primary: linear-gradient(180deg, #5d3fd6 0%, #5c43c3 60%, #332760 100%);
-  --gradient-primary-solid: linear-gradient(145deg, #5d3fd6 0%, #4a32c4 50%, #332760 100%);
+  --gradient-primary: linear-gradient(180deg, #33bbcf 0%, #2aa3b5 55%, #0d3d48 100%);
+  --gradient-primary-solid: linear-gradient(145deg, #33bbcf 0%, #2a9eb0 50%, #0d3d48 100%);
+  --gradient-icon: linear-gradient(135deg, #5dd4e0 0%, #33bbcf 65%, #0d3d48 100%);
   --radius-card: 22px;
   --radius-card-sm: 16px;
   --radius-btn: 10px;
-  --gradient-heading: linear-gradient(180deg, #ffffff 0%, #ddd6f0 38%, #a89fd4 72%, #7a6bb8 100%);
+  --gradient-heading: linear-gradient(180deg, #ffffff 0%, #c8f0f4 42%, #5dd4e0 72%, #33bbcf 100%);
 }
 
 .text-heading-gradient {
@@ -67,7 +74,7 @@
 
 .surface-card-accent-solid {
   border-radius: var(--radius-card-sm);
-  border: 1px solid rgba(93, 63, 214, 0.35);
+  border: 1px solid rgba(51, 187, 207, 0.35);
   background: var(--gradient-primary-solid);
   box-shadow: var(--shadow-card-accent);
 }
@@ -160,6 +167,9 @@
   --color-text: var(--text);
   --color-text-muted: var(--text-muted);
   --color-text-dim: var(--text-dim);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-deep: var(--accent-deep);
   --color-purple: var(--purple);
   --color-purple-2: var(--purple-2);
   --color-purple-deep: var(--purple-deep);
@@ -168,6 +178,7 @@
   --color-border-strong: var(--border-strong);
   --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, "Times New Roman", serif;
+  --font-display: var(--font-nasalization), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --animate-float-a: float-a 6s ease-in-out infinite;
   --animate-float-b: float-b 7s ease-in-out infinite;
   --animate-float-c: float-c 5.5s ease-in-out infinite;
@@ -220,9 +231,17 @@ body {
   font-family: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   background:
-    radial-gradient(ellipse 80% 60% at 70% 30%, rgba(93, 63, 214, 0.28), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 20% 60%, rgba(51, 39, 96, 0.35), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 70% 30%, rgba(51, 187, 207, 0.16), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 60%, rgba(10, 40, 80, 0.35), transparent 60%),
     var(--bg);
+}
+
+/* Vanta NET canvas — fill hero background layer */
+.vanta-canvas {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 @keyframes float-a {
@@ -351,7 +370,7 @@ body {
   border-radius: var(--radius-card);
   border: 1px solid var(--border-soft);
   /* OPAQUE base so stacked cards fully cover the one behind them */
-  background-color: #0f0c18;
+  background-color: #050810;
   background-image:
     radial-gradient(
       130% 120% at 0% 0%,

@@ -34,9 +34,9 @@ export default function Earth({
   diffuse = 1.2,
   mapSamples = 40000,
   mapBrightness = 6,
-  baseColor = [0.55, 0.5, 0.72],
-  markerColor = [0.7, 0.55, 1],
-  glowColor = [0.36, 0.25, 0.85],
+  baseColor = [0.2, 0.73, 0.81],
+  markerColor = [0, 0.82, 1],
+  glowColor = [0.2, 0.73, 0.81],
 }: EarthProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 

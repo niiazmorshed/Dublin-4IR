@@ -105,15 +105,15 @@ export default function CardFrame({
         >
           <defs>
             <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#8f7bee" />
-              <stop offset="45%" stopColor="#5d3fd6" />
+              <stop offset="0%" stopColor="#5dd4e0" />
+              <stop offset="45%" stopColor="#33bbcf" />
               <stop offset="100%" stopColor="#2f2270" />
             </linearGradient>
           </defs>
           {/* soft outer halo */}
           <path
             d={path}
-            stroke="#5d3fd6"
+            stroke="#33bbcf"
             strokeOpacity="0.35"
             strokeWidth="6"
             strokeLinejoin="round"
