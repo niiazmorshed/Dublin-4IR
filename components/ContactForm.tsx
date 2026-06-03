@@ -165,8 +165,8 @@ export default function ContactForm() {
       {status === "error" && (
         <p className="mt-5 text-[14px] text-[#ff9a9a]">
           Something went wrong sending your message. Please try again, or email us directly at{" "}
-          <a href="mailto:hello@dublin4ir.com" className="underline underline-offset-4">
-            hello@dublin4ir.com
+          <a href="mailto:info@dublin4ir.com" className="underline underline-offset-4">
+            info@dublin4ir.com
           </a>
           .
         </p>

@@ -32,10 +32,10 @@ export default function ContactPage() {
       <p className="mt-6 text-[14px] text-[var(--text-dim)]">
         Prefer email?{" "}
         <a
-          href="mailto:hello@dublin4ir.com?subject=Project%20enquiry"
+          href="mailto:info@dublin4ir.com?subject=Project%20enquiry"
           className="text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[var(--text)] hover:underline"
         >
-          hello@dublin4ir.com
+          info@dublin4ir.com
         </a>
       </p>
     </main>

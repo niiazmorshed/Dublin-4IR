@@ -15,7 +15,7 @@ const INFO_LINKS = [
   { label: "About", href: "/#about" },
   { label: "How We Work", href: "/#how-we-work" },
   { label: "Tech Stack", href: "/#stack" },
-  { label: "Support", href: "mailto:hello@dublin4ir.com" },
+  { label: "Support", href: "mailto:info@dublin4ir.com" },
 ] as const;
 
 const SOCIAL_LINKS = [

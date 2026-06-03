@@ -2,9 +2,13 @@
 
 import { useSyncExternalStore } from "react";
 import ContactForm from "@/components/ContactForm";
-import { getCategoryBySlug, SERVICE_CATEGORIES } from "@/lib/service-categories";
+import {
+  getCategoryBySlug,
+  SERVICE_CATEGORIES,
+} from "@/lib/service-categories";
 
-const serifItalic = "font-[family-name:var(--font-playfair)] italic font-normal";
+const serifItalic =
+  "font-[family-name:var(--font-playfair)] italic font-normal";
 
 function parseServiceSlugFromHash(hash: string): string | null {
   if (!hash) return null;
@@ -39,14 +43,17 @@ export default function ContactSection() {
       className="relative mx-auto max-w-[1240px] scroll-mt-28 px-6 pb-24 pt-8 min-[960px]:px-10"
     >
       {SERVICE_CATEGORIES.map((cat) => (
-        <span key={cat.slug} id={`contact-${cat.slug}`} className="sr-only" tabIndex={-1} />
+        <span
+          key={cat.slug}
+          id={`contact-${cat.slug}`}
+          className="sr-only"
+          tabIndex={-1}
+        />
       ))}
 
       <div className="mx-auto max-w-[760px]">
         <div className="text-center">
-          <p className="section-eyebrow">
-            Contact
-          </p>
+          <p className="section-eyebrow">Contact</p>
           <h2
             id="contact-heading"
             className="mt-3 text-[clamp(1.5rem,3.5vw,2.25rem)] font-bold tracking-[-0.03em] text-[var(--text)]"
@@ -54,11 +61,16 @@ export default function ContactSection() {
             {active ? (
               <>
                 Discuss{" "}
-                <span className={`${serifItalic} text-[var(--text-muted)]`}>{active.title}</span>
+                <span className={`${serifItalic} text-[var(--text-muted)]`}>
+                  {active.title}
+                </span>
               </>
             ) : (
               <>
-                Start your <span className={`${serifItalic} text-[var(--text-muted)]`}>project</span>
+                Start your{" "}
+                <span className={`${serifItalic} text-[var(--text-muted)]`}>
+                  project
+                </span>
               </>
             )}
           </h2>
@@ -76,10 +88,10 @@ export default function ContactSection() {
         <p className="mt-6 text-center text-[14px] text-[var(--text-dim)]">
           Prefer email?{" "}
           <a
-            href="mailto:hello@dublin4ir.com?subject=Project%20enquiry"
+            href="mailto:info@dublin4ir.com?subject=Project%20enquiry"
             className="text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[var(--text)] hover:underline"
           >
-            hello@dublin4ir.com
+            info@dublin4ir.com
           </a>
         </p>
       </div>
