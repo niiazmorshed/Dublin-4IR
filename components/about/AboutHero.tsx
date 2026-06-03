@@ -62,7 +62,7 @@ export default function AboutHero() {
       {/* accent glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/4 z-0 h-[520px] w-[760px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(93,63,214,0.3)_0%,transparent_60%)] blur-[30px]"
+        className="pointer-events-none absolute left-1/2 top-1/4 z-0 h-[520px] w-[760px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(51,187,207,0.22)_0%,transparent_60%)] blur-[30px]"
       />
 
       <div className="relative z-10 mx-auto max-w-[1100px] text-center">

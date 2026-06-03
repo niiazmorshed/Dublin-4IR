@@ -90,14 +90,14 @@ export default function Navbar() {
       <nav
         ref={navRef}
         aria-label="Primary"
-        className="relative mx-auto flex max-w-[1240px] items-center justify-between rounded-full border border-[var(--border-soft)] bg-[rgba(14,11,25,0.55)] py-3 pr-[18px] pl-[22px] shadow-[var(--shadow-card)] backdrop-blur-[18px] backdrop-saturate-[140%]"
+        className="relative mx-auto flex max-w-[1240px] items-center justify-between rounded-full border border-[var(--border-soft)] bg-[rgba(0,4,15,0.72)] py-3 pr-[18px] pl-[22px] shadow-[var(--shadow-card)] backdrop-blur-[18px] backdrop-saturate-[140%]"
       >
         <Link
           href="/"
           className="flex items-center text-[19px] font-extrabold tracking-[-0.02em] text-[var(--text)]"
         >
           <span>
-            Dublin<span className="text-[var(--text-muted)]">4ir</span>
+            Dublin<span className="text-[var(--accent)]">4ir</span>
           </span>
         </Link>
 
@@ -147,7 +147,7 @@ export default function Navbar() {
         {menuOpen && (
           <div
             id="primary-mobile-menu"
-            className="absolute inset-x-0 top-[calc(100%+10px)] flex flex-col gap-1 rounded-[22px] border border-[var(--border-soft)] bg-[rgba(14,11,25,0.92)] p-2 shadow-[var(--shadow-card)] backdrop-blur-[18px] backdrop-saturate-[140%] min-[960px]:hidden"
+            className="absolute inset-x-0 top-[calc(100%+10px)] flex flex-col gap-1 rounded-[22px] border border-[var(--border-soft)] bg-[rgba(0,4,15,0.92)] p-2 shadow-[var(--shadow-card)] backdrop-blur-[18px] backdrop-saturate-[140%] min-[960px]:hidden"
           >
             {NAV_ITEMS.map((item) => (
               <Link

@@ -371,11 +371,11 @@ export default function StackingServices() {
               className="sticky top-0 grid min-h-screen place-content-center py-[6vh]"
             >
               <CardFrame className="w-[min(86vw,620px)]" tabLabel={service.tab}>
-                <div className="relative grid grid-cols-1 gap-6 overflow-hidden rounded-[24px] bg-[#100c1c]/95 p-7 backdrop-blur-md min-[560px]:grid-cols-[1fr_auto] min-[560px]:items-center min-[560px]:p-9">
+                <div className="relative grid grid-cols-1 gap-6 overflow-hidden rounded-[24px] bg-[#050810]/95 p-7 backdrop-blur-md min-[560px]:grid-cols-[1fr_auto] min-[560px]:items-center min-[560px]:p-9">
                   {/* accent wash */}
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_120%_at_100%_0%,rgba(93,63,214,0.22),transparent_55%)]"
+                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_120%_at_100%_0%,rgba(51,187,207,0.18),transparent_55%)]"
                   />
 
                   <div className="relative flex flex-col gap-4">
@@ -399,7 +399,7 @@ export default function StackingServices() {
 
                   {/* service glyph tile */}
                   <div className="relative hidden h-[160px] w-[160px] shrink-0 place-items-center min-[560px]:grid">
-                    <div className="absolute inset-0 rounded-[22px] bg-[radial-gradient(circle_at_30%_25%,rgba(153,140,205,0.4),transparent_60%),linear-gradient(160deg,#332760_0%,#161139_100%)] shadow-[0_0_0_1px_rgba(220,215,232,0.08)_inset,0_24px_60px_-24px_rgba(93,63,214,0.7)]" />
+                    <div className="absolute inset-0 rounded-[22px] bg-[radial-gradient(circle_at_30%_25%,rgba(51,187,207,0.35),transparent_60%),linear-gradient(160deg,#0d3d48_0%,#0a1628_100%)] shadow-[0_0_0_1px_rgba(176,192,204,0.08)_inset,0_24px_60px_-24px_rgba(51,187,207,0.5)]" />
                     <div className="relative h-[64px] w-[64px] text-white">
                       <Glyph kind={service.glyph} />
                     </div>

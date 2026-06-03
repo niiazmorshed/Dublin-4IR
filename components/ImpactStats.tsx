@@ -35,9 +35,9 @@ function StatCard({
 function VerticalGlow() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute -top-[10%] left-[18%] h-[130%] w-[28%] rotate-[8deg] bg-[linear-gradient(180deg,rgba(93,63,214,0.55)_0%,rgba(153,140,205,0.12)_55%,transparent_100%)]" />
-      <div className="absolute -top-[5%] left-[48%] h-[120%] w-[18%] -rotate-[6deg] bg-[linear-gradient(180deg,rgba(93,63,214,0.35)_0%,transparent_70%)]" />
-      <div className="absolute top-0 right-[8%] h-full w-[22%] rotate-[12deg] bg-[linear-gradient(180deg,rgba(153,140,205,0.28)_0%,transparent_65%)]" />
+      <div className="absolute -top-[10%] left-[18%] h-[130%] w-[28%] rotate-[8deg] bg-[linear-gradient(180deg,rgba(51,187,207,0.55)_0%,rgba(93,212,224,0.12)_55%,transparent_100%)]" />
+      <div className="absolute -top-[5%] left-[48%] h-[120%] w-[18%] -rotate-[6deg] bg-[linear-gradient(180deg,rgba(51,187,207,0.35)_0%,transparent_70%)]" />
+      <div className="absolute top-0 right-[8%] h-full w-[22%] rotate-[12deg] bg-[linear-gradient(180deg,rgba(93,212,224,0.28)_0%,transparent_65%)]" />
     </div>
   );
 }
@@ -45,9 +45,9 @@ function VerticalGlow() {
 function HorizontalGlow() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] overflow-hidden">
-      <div className="absolute bottom-0 left-0 h-[3px] w-full bg-[linear-gradient(90deg,transparent,rgba(93,63,214,0.9),rgba(153,140,205,0.7),rgba(182,128,114,0.5),transparent)]" />
-      <div className="absolute bottom-2 left-[5%] h-[2px] w-[90%] bg-[linear-gradient(90deg,transparent,rgba(93,63,214,0.45),transparent)]" />
-      <div className="absolute bottom-6 left-[15%] right-[10%] h-16 bg-[radial-gradient(ellipse_at_center,rgba(93,63,214,0.22)_0%,transparent_70%)] blur-xl" />
+      <div className="absolute bottom-0 left-0 h-[3px] w-full bg-[linear-gradient(90deg,transparent,rgba(51,187,207,0.9),rgba(93,212,224,0.7),rgba(182,128,114,0.5),transparent)]" />
+      <div className="absolute bottom-2 left-[5%] h-[2px] w-[90%] bg-[linear-gradient(90deg,transparent,rgba(51,187,207,0.45),transparent)]" />
+      <div className="absolute bottom-6 left-[15%] right-[10%] h-16 bg-[radial-gradient(ellipse_at_center,rgba(51,187,207,0.22)_0%,transparent_70%)] blur-xl" />
     </div>
   );
 }
@@ -62,7 +62,7 @@ function RetentionDiagram() {
     >
       <path
         d="M10 70 L50 70 L70 45 L95 55 L120 30 L155 38 L190 15"
-        stroke="rgba(153,140,205,0.55)"
+        stroke="rgba(93,212,224,0.55)"
         strokeWidth="1.5"
         strokeLinecap="round"
       />
@@ -71,13 +71,13 @@ function RetentionDiagram() {
         fill="url(#impact-fill)"
         opacity="0.35"
       />
-      <circle cx="120" cy="30" r="4" fill="#998ccd" />
-      <circle cx="155" cy="38" r="3" fill="#5d3fd6" />
-      <circle cx="190" cy="15" r="3.5" fill="#dcd7e8" />
+      <circle cx="120" cy="30" r="4" fill="#5dd4e0" />
+      <circle cx="155" cy="38" r="3" fill="#33bbcf" />
+      <circle cx="190" cy="15" r="3.5" fill="#c8f0f4" />
       <defs>
         <linearGradient id="impact-fill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#998ccd" stopOpacity="0.5" />
-          <stop offset="100%" stopColor="#998ccd" stopOpacity="0" />
+          <stop offset="0%" stopColor="#5dd4e0" stopOpacity="0.5" />
+          <stop offset="100%" stopColor="#5dd4e0" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>
@@ -88,7 +88,7 @@ function TeamGlow() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute -right-[15%] -bottom-[10%] h-[90%] w-[90%] rounded-full bg-[radial-gradient(circle,rgba(93,63,214,0.5)_0%,rgba(51,39,96,0.18)_45%,transparent_70%)] blur-2xl"
+      className="pointer-events-none absolute -right-[15%] -bottom-[10%] h-[90%] w-[90%] rounded-full bg-[radial-gradient(circle,rgba(51,187,207,0.5)_0%,rgba(10,61,72,0.18)_45%,transparent_70%)] blur-2xl"
     />
   );
 }
@@ -110,7 +110,7 @@ export default function ImpactStats() {
           sizes="(min-width: 960px) 880px, 110vw"
           priority={false}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,11,25,0.9)_0%,rgba(14,11,25,0.42)_45%,rgba(14,11,25,0.88)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,4,15,0.9)_0%,rgba(0,4,15,0.42)_45%,rgba(0,4,15,0.88)_100%)]" />
       </div>
 
       <div className="relative mx-auto max-w-[1240px] px-6 py-14 min-[960px]:px-10 min-[960px]:py-16">
@@ -156,7 +156,7 @@ export default function ImpactStats() {
         <article className="surface-card relative flex min-h-[148px] flex-col justify-between overflow-hidden p-5 sm:min-h-[160px] sm:p-6 lg:col-span-3 lg:row-start-1">
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(93,63,214,0.28)_0%,rgba(14,11,25,0.15)_55%,rgba(14,11,25,0.85)_100%)]"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(51,187,207,0.28)_0%,rgba(0,4,15,0.15)_55%,rgba(0,4,15,0.85)_100%)]"
           />
           <VerticalGlow />
           <div className="relative z-[1]">

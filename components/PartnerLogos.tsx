@@ -12,7 +12,7 @@ export default function PartnerLogos() {
       className="relative mx-auto mt-10 max-w-[1240px] px-6 pt-[60px] pb-20 text-center min-[960px]:px-10"
     >
       <div className="mb-9 inline-flex items-center gap-2.5 text-[13px] text-[var(--text-muted)]">
-        <span className="grid h-5 w-5 place-items-center rounded-md bg-[linear-gradient(135deg,#998ccd_0%,#5d3fd6_60%,#332760_100%)] text-[11px] font-extrabold text-white">
+        <span className="grid h-5 w-5 place-items-center rounded-md bg-[var(--gradient-icon)] text-[11px] font-extrabold text-white">
           D
         </span>
         Trusted by Ireland&apos;s leading institutions

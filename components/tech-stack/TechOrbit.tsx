@@ -135,7 +135,7 @@ export default function TechOrbit({ className = "" }: { className?: string }) {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[18%] w-[18%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(93,63,214,0.35)_0%,transparent_70%)] blur-xl"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[18%] w-[18%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(51,187,207,0.3)_0%,transparent_70%)] blur-xl"
       />
 
       <SolarRing
@@ -158,7 +158,7 @@ export default function TechOrbit({ className = "" }: { className?: string }) {
         <div className="text-center">
           <p className="text-[clamp(1.125rem,3.2vw,1.75rem)] font-extrabold tracking-[-0.04em] text-[var(--text)]">
             Dublin
-            <span className="bg-[linear-gradient(135deg,#61dafb_0%,#998ccd_45%,#5d3fd6_75%,#b68072_100%)] bg-clip-text text-transparent">
+            <span className="bg-[linear-gradient(135deg,#61dafb_0%,#5dd4e0_40%,#33bbcf_75%,#e8a87c_100%)] bg-clip-text text-transparent">
               4ir
             </span>
           </p>
