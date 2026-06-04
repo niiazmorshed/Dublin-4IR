@@ -12,11 +12,44 @@ export function CategoryIcon({ kind }: { kind: ServiceCategory["icon"] }) {
           </svg>
         </div>
       );
+    case "sme":
+      return (
+        <div className={common} aria-hidden>
+          <svg viewBox="0 0 24 24" fill="none" className="h-full w-full" stroke="currentColor" strokeWidth="1.5">
+            <path d="M3 21h18M5 21V10l7-4 7 4v11M9 21v-6h6v6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+      );
+    case "ecommerce":
+      return (
+        <div className={common} aria-hidden>
+          <svg viewBox="0 0 24 24" fill="none" className="h-full w-full" stroke="currentColor" strokeWidth="1.5">
+            <path d="M6 6h15l-1.5 9h-12L6 6zM6 6L5 3H2M9 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+      );
     case "fintech":
       return (
         <div className={common} aria-hidden>
           <svg viewBox="0 0 24 24" fill="none" className="h-full w-full" stroke="currentColor" strokeWidth="1.5">
             <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+      );
+    case "insurance":
+      return (
+        <div className={common} aria-hidden>
+          <svg viewBox="0 0 24 24" fill="none" className="h-full w-full" stroke="currentColor" strokeWidth="1.5">
+            <path d="M12 3l7 4v6c0 4.5-3 7.5-7 8-4-.5-7-3.5-7-8V7l7-4z" strokeLinejoin="round" />
+            <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+      );
+    case "regtech":
+      return (
+        <div className={common} aria-hidden>
+          <svg viewBox="0 0 24 24" fill="none" className="h-full w-full" stroke="currentColor" strokeWidth="1.5">
+            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 14h6M9 18h6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
       );
