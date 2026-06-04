@@ -14,18 +14,38 @@ const NAV_LINKS = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
+type HomeSection = "" | "#services" | "#projects";
+
+const SCROLL_OFFSET = 120;
+
+function getHomeSectionFromScroll(): HomeSection {
+  const servicesEl = document.getElementById("services");
+  const projectsEl = document.getElementById("projects");
+  if (!servicesEl) return "";
+
+  const y = window.scrollY + SCROLL_OFFSET;
+  if (y < servicesEl.offsetTop) return "";
+  if (projectsEl && y >= projectsEl.offsetTop) return "#projects";
+  return "#services";
+}
+
 function isLinkActive(
   pathname: string,
-  hash: string,
+  homeSection: HomeSection,
   link: (typeof NAV_LINKS)[number],
 ): boolean {
   if ("isHome" in link && link.isHome) {
-    return pathname === "/" && !hash;
+    return pathname === "/" && homeSection === "";
   }
   if ("hash" in link && link.hash) {
-    return pathname === "/" && hash === link.hash;
+    return pathname === "/" && homeSection === link.hash;
   }
   return pathname === link.href;
+}
+
+function goToHomeTop() {
+  window.history.replaceState(null, "", "/");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 /**
@@ -35,16 +55,30 @@ function isLinkActive(
 export default function Navbar() {
   const pathname = usePathname();
   const [hidden, setHidden] = useState(false);
-  const [hash, setHash] = useState("");
+  const [homeSection, setHomeSection] = useState<HomeSection>("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const lastY = useRef(0);
   const navRef = useRef<HTMLElement>(null);
 
+  // Highlight Home / Services / Projects from scroll position, not a stale URL hash.
   useEffect(() => {
-    const syncHash = () => setHash(window.location.hash);
-    syncHash();
-    window.addEventListener("hashchange", syncHash);
-    return () => window.removeEventListener("hashchange", syncHash);
+    if (pathname !== "/") {
+      setHomeSection("");
+      return;
+    }
+
+    const update = () => setHomeSection(getHomeSectionFromScroll());
+
+    update();
+    const raf = requestAnimationFrame(() => requestAnimationFrame(update));
+
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("hashchange", update);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("hashchange", update);
+    };
   }, [pathname]);
 
   useEffect(() => {
@@ -64,7 +98,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setMobileOpen(false);
-  }, [pathname, hash]);
+  }, [pathname, homeSection]);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -109,6 +143,12 @@ export default function Navbar() {
           <div className="flex items-center justify-between gap-3 min-[960px]:gap-5">
             <Link
               href="/"
+              onClick={(e) => {
+                if (pathname !== "/") return;
+                e.preventDefault();
+                goToHomeTop();
+                setHomeSection("");
+              }}
               className="shrink-0 text-[20px] font-semibold tracking-[-0.02em] text-[var(--text)] min-[960px]:text-[22px]"
             >
               <span className="text-[var(--accent)]">D</span>ublin
@@ -118,11 +158,20 @@ export default function Navbar() {
             <div className="hidden min-[960px]:flex min-[960px]:flex-1 min-[960px]:justify-center">
               <div className="inline-flex items-center gap-0.5 rounded-full bg-[rgba(255,255,255,0.06)] p-1">
                 {NAV_LINKS.map((link) => {
-                  const active = isLinkActive(pathname, hash, link);
+                  const active = isLinkActive(pathname, homeSection, link);
                   return (
                     <Link
                       key={link.href + link.label}
                       href={link.href}
+                      onClick={
+                        "isHome" in link && link.isHome && pathname === "/"
+                          ? (e) => {
+                              e.preventDefault();
+                              goToHomeTop();
+                              setHomeSection("");
+                            }
+                          : undefined
+                      }
                       className={`nav-pill-link rounded-full px-3.5 py-2 text-[13px] font-medium leading-none whitespace-nowrap min-[1100px]:px-4 min-[1100px]:text-[14px] ${
                         active
                           ? "bg-[rgba(255,255,255,0.14)] text-[var(--text)]"
@@ -186,12 +235,19 @@ export default function Navbar() {
               className="absolute inset-x-0 top-[calc(100%+10px)] flex flex-col gap-1 rounded-[22px] border border-[var(--border-soft)] bg-[rgba(0,4,15,0.92)] p-2 shadow-[var(--shadow-card)] backdrop-blur-[18px] min-[960px]:hidden"
             >
               {NAV_LINKS.map((link) => {
-                const active = isLinkActive(pathname, hash, link);
+                const active = isLinkActive(pathname, homeSection, link);
                 return (
                   <Link
                     key={link.href + link.label}
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => {
+                      if ("isHome" in link && link.isHome && pathname === "/") {
+                        e.preventDefault();
+                        goToHomeTop();
+                        setHomeSection("");
+                      }
+                      setMobileOpen(false);
+                    }}
                     className={`nav-pill-link rounded-2xl px-4 py-3 text-[15px] font-medium ${
                       active
                         ? "bg-[rgba(255,255,255,0.12)] text-[var(--text)]"

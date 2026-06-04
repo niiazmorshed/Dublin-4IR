@@ -1,5 +1,4 @@
-import Image from "next/image";
-import ServicesCategoryList from "@/components/ServicesCategoryList";
+import ServicesOrbit from "@/components/services/ServicesOrbit";
 
 const serifItalic = "font-[family-name:var(--font-playfair)] italic font-normal";
 
@@ -8,9 +7,14 @@ export default function ServicesSection() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="relative mx-auto max-w-[1240px] px-6 py-16 min-[960px]:px-10 min-[960px]:py-20"
+      className="relative mx-auto w-full overflow-visible px-4 py-16 min-[960px]:px-5 min-[960px]:py-28"
     >
-      <header className="mb-12 text-center min-[960px]:mb-14">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[min(88vw,720px)] w-[min(88vw,720px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(51,187,207,0.1)_0%,transparent_65%)]"
+      />
+
+      <header className="relative mb-10 text-center min-[960px]:mb-14">
         <div className="section-eyebrow mb-3">
           <span className="text-[var(--purple-2)]" aria-hidden>
             ✦
@@ -25,60 +29,11 @@ export default function ServicesSection() {
           <span className={`${serifItalic} text-[var(--text-muted)]`}>Capabilities</span>
         </h2>
         <p className="mx-auto mt-4 max-w-[52ch] text-[15px] leading-relaxed text-[var(--text-dim)]">
-          From ideation to deployment, we deliver end-to-end technology solutions tailored to your business needs.
+          Explore our practices in the round — enterprise, SME, commerce, fintech, insurance, RegTech, and more.
         </p>
       </header>
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-10">
-        <div className="flex flex-col gap-5">
-          <div className="surface-card-sm p-5 min-[960px]:p-6">
-            <p className="text-[11px] font-semibold tracking-[0.14em] text-[var(--text-dim)] uppercase">
-              At a glance
-            </p>
-            <p className="mt-3 text-[14px] leading-relaxed text-[var(--text-dim)]">
-              Five focused practices — enterprise engineering, financial & operations tech, intelligent products, cloud &amp; DevOps, and HealthTech with flexible talent.
-            </p>
-            <ul className="mt-4 space-y-2 text-[13px] leading-snug text-[var(--text)]">
-              <li className="flex gap-2">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[var(--purple-2)]" aria-hidden />
-                <span>Platforms, ERP/CRM, commerce &amp; CMS</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[var(--purple-2)]" aria-hidden />
-                <span>Fintech, insurance, payments &amp; workflows</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[var(--purple-2)]" aria-hidden />
-                <span>AI/ML, IoT, AR/VR &amp; games</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[var(--purple-2)]" aria-hidden />
-                <span>Cloud, migration, DevOps &amp; security testing</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[var(--purple-2)]" aria-hidden />
-                <span>HealthTech, LMS &amp; outsourced engineering</span>
-              </li>
-            </ul>
-          </div>
-          <div className="surface-card relative aspect-[4/3] w-full overflow-hidden">
-            <Image
-              src="/tech3.jpg"
-              alt=""
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              priority={false}
-            />
-            <div
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(0,4,15,0.2)_0%,transparent_50%,rgba(51,187,207,0.1)_100%)]"
-              aria-hidden
-            />
-          </div>
-        </div>
-
-        <ServicesCategoryList />
-      </div>
+      <ServicesOrbit />
     </section>
   );
 }
