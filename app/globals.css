@@ -179,6 +179,7 @@
   --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, "Times New Roman", serif;
   --font-display: var(--font-nasalization), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-nav: var(--font-red-rose), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --animate-float-a: float-a 6s ease-in-out infinite;
   --animate-float-b: float-b 7s ease-in-out infinite;
   --animate-float-c: float-c 5.5s ease-in-out infinite;
@@ -234,6 +235,38 @@ body {
     radial-gradient(ellipse 80% 60% at 70% 30%, rgba(51, 187, 207, 0.16), transparent 60%),
     radial-gradient(ellipse 60% 50% at 20% 60%, rgba(10, 40, 80, 0.35), transparent 60%),
     var(--bg);
+}
+
+/* Navbar — pill links & playful hover */
+@keyframes nav-wobble {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  35% {
+    transform: translateY(-2px) rotate(-2deg);
+  }
+  65% {
+    transform: translateY(0) rotate(2deg);
+  }
+}
+
+.nav-pill-link {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-pill-link:hover {
+  animation: nav-wobble 0.42s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-pill-link:hover {
+    animation: none;
+    transform: translateY(-1px);
+  }
 }
 
 /* Vanta NET canvas — fill hero background layer */
