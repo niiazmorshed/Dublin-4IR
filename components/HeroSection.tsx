@@ -222,13 +222,16 @@ export default function HeroSection() {
           Accelerate Your Digital{" "}
           <span className="text-[var(--accent)]">Future</span>
         </h1>
-        <p className="mt-5 max-w-[480px] text-[17px] leading-[1.55] text-[var(--text-muted)]">
+        <p className="mt-5 max-w-[480px] font-[family-name:var(--font-red-rose)] text-[17px] font-normal leading-[1.55] text-[var(--text-muted)]">
           Bridging Ireland&apos;s digital ambitions with world-class development
           — delivering government and enterprise projects with precision and
           speed.
         </p>
         <div id="start" className="mt-6 flex scroll-mt-28 items-center gap-3.5">
-          <a href="#contact" className="btn-primary">
+          <a
+            href="#contact"
+            className="btn-primary font-[family-name:var(--font-red-rose)] font-medium"
+          >
             Start a Project
           </a>
         </div>
