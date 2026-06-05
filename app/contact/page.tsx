@@ -41,10 +41,10 @@ export default function ContactPage() {
         </a>{" "}
         or call{" "}
         <a
-          href="tel:+8801703082486"
+          href="tel:+353899519986"
           className="text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[var(--text)] hover:underline"
         >
-          +880 1703 082486
+          +353 89 951 9986
         </a>
         .
       </p>

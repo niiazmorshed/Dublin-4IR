@@ -157,7 +157,8 @@ export default function Navbar() {
 
             <div className="hidden min-[960px]:flex min-[960px]:flex-1 min-[960px]:justify-center">
               <div className="inline-flex items-center gap-0.5 rounded-full bg-[rgba(255,255,255,0.06)] p-1">
-                {NAV_LINKS.map((link) => {
+                {/* Contact has a dedicated button on the right, so omit it here to avoid a duplicate */}
+                {NAV_LINKS.filter((link) => link.href !== "/contact").map((link) => {
                   const active = isLinkActive(pathname, homeSection, link);
                   return (
                     <Link
