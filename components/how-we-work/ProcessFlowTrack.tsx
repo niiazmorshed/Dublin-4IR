@@ -39,13 +39,13 @@ function buildConnectorPath(
 function MobileConnector({ animIndex }: { animIndex: number }) {
   return (
     <div
-      className="stagger-item stagger-item--flow-line -mt-1 flex justify-center pb-1 pt-2 min-[960px]:hidden"
+      className="stagger-item stagger-item--flow-line flex justify-center pb-3 pt-8 min-[960px]:hidden"
       style={{ "--i": animIndex } as CSSProperties}
       aria-hidden
     >
       <div className="flex flex-col items-center">
-        {/* Vertical stem from previous card */}
-        <div className="h-12 w-0 border-l-2 border-dashed border-[var(--purple-2)] opacity-75" />
+        {/* Long vertical stem so the arrow sits low in the gap, clear of the card above */}
+        <div className="h-16 w-0 border-l-2 border-dashed border-[var(--purple-2)] opacity-75" />
         <svg
           viewBox="0 0 12 10"
           className="mt-0.5 h-3 w-3.5 text-[var(--purple-2)]"

@@ -92,7 +92,15 @@ export default function ContactSection() {
             className="text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[var(--text)] hover:underline"
           >
             info@dublin4ir.com
+          </a>{" "}
+          or call{" "}
+          <a
+            href="tel:+8801734804733"
+            className="text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[var(--text)] hover:underline"
+          >
+            +880 1734 804733
           </a>
+          .
         </p>
       </div>
     </section>

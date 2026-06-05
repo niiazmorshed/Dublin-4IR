@@ -58,7 +58,7 @@ export default function Navbar() {
   const [homeSection, setHomeSection] = useState<HomeSection>("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const lastY = useRef(0);
-  const navRef = useRef<HTMLElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
 
   // Highlight Home / Services / Projects from scroll position, not a stale URL hash.
   useEffect(() => {
@@ -122,6 +122,7 @@ export default function Navbar() {
 
   return (
     <div
+      ref={navRef}
       className={`sticky top-[14px] z-50 px-4 transition-transform duration-300 ease-out motion-reduce:transition-none min-[960px]:px-6 ${
         hidden ? "-translate-y-[140%]" : "translate-y-0"
       }`}
@@ -136,7 +137,6 @@ export default function Navbar() {
         className="font-[family-name:var(--font-red-rose)] mx-auto w-full max-w-[1240px] border-0 bg-transparent min-[960px]:rounded-full"
       >
         <nav
-          ref={navRef}
           aria-label="Primary"
           className="relative px-4 py-3 min-[960px]:rounded-full min-[960px]:px-5 min-[960px]:py-3.5"
         >
@@ -187,6 +187,19 @@ export default function Navbar() {
             </div>
 
             <div className="flex shrink-0 items-center gap-2">
+              <Link
+                href="/contact"
+                className="hidden rounded-full border border-[var(--border-strong)] bg-[rgba(255,255,255,0.05)] px-4 py-2.5 text-[13px] font-medium text-[var(--text)] transition-colors hover:border-[rgba(51,187,207,0.35)] hover:bg-[rgba(255,255,255,0.08)] min-[640px]:inline-flex"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-4 py-2.5 text-[13px] font-semibold text-[#00040f] transition-colors hover:bg-[var(--accent-light)] min-[960px]:px-5"
+              >
+                Start a Project
+              </Link>
+
               <button
                 type="button"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-strong)] text-[var(--text-muted)] transition-colors hover:bg-[rgba(255,255,255,0.06)] hover:text-[var(--text)] min-[960px]:hidden"
@@ -213,55 +226,45 @@ export default function Navbar() {
                   )}
                 </svg>
               </button>
-
-              <Link
-                href="/contact"
-                className="hidden rounded-full border border-[var(--border-strong)] bg-[rgba(255,255,255,0.05)] px-4 py-2.5 text-[13px] font-medium text-[var(--text)] transition-colors hover:border-[rgba(51,187,207,0.35)] hover:bg-[rgba(255,255,255,0.08)] min-[640px]:inline-flex"
-              >
-                Contact
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-4 py-2.5 text-[13px] font-semibold text-[#00040f] transition-colors hover:bg-[var(--accent-light)] min-[960px]:px-5"
-              >
-                Start a Project
-              </Link>
             </div>
           </div>
 
-          {mobileOpen ? (
-            <div
-              id="mobile-nav"
-              className="absolute inset-x-0 top-[calc(100%+10px)] flex flex-col gap-1 rounded-[22px] border border-[var(--border-soft)] bg-[rgba(0,4,15,0.92)] p-2 shadow-[var(--shadow-card)] backdrop-blur-[18px] min-[960px]:hidden"
-            >
-              {NAV_LINKS.map((link) => {
-                const active = isLinkActive(pathname, homeSection, link);
-                return (
-                  <Link
-                    key={link.href + link.label}
-                    href={link.href}
-                    onClick={(e) => {
-                      if ("isHome" in link && link.isHome && pathname === "/") {
-                        e.preventDefault();
-                        goToHomeTop();
-                        setHomeSection("");
-                      }
-                      setMobileOpen(false);
-                    }}
-                    className={`nav-pill-link rounded-2xl px-4 py-3 text-[15px] font-medium ${
-                      active
-                        ? "bg-[rgba(255,255,255,0.12)] text-[var(--text)]"
-                        : "text-[var(--text-muted)] hover:bg-[rgba(255,255,255,0.06)] hover:text-[var(--text)]"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </div>
-          ) : null}
         </nav>
       </LiquidGlassCard>
+
+      {/* Rendered outside LiquidGlassCard: the glass card clips overflow, which
+          would otherwise hide this dropdown that sits below the bar. */}
+      {mobileOpen ? (
+        <div
+          id="mobile-nav"
+          className="absolute left-4 right-4 top-[calc(100%+10px)] z-50 flex flex-col gap-1 rounded-[22px] border border-[var(--border-soft)] bg-[rgba(0,4,15,0.92)] p-2 shadow-[var(--shadow-card)] backdrop-blur-[18px] min-[960px]:hidden"
+        >
+          {NAV_LINKS.map((link) => {
+            const active = isLinkActive(pathname, homeSection, link);
+            return (
+              <Link
+                key={link.href + link.label}
+                href={link.href}
+                onClick={(e) => {
+                  if ("isHome" in link && link.isHome && pathname === "/") {
+                    e.preventDefault();
+                    goToHomeTop();
+                    setHomeSection("");
+                  }
+                  setMobileOpen(false);
+                }}
+                className={`nav-pill-link rounded-2xl px-4 py-3 text-[15px] font-medium ${
+                  active
+                    ? "bg-[rgba(255,255,255,0.12)] text-[var(--text)]"
+                    : "text-[var(--text-muted)] hover:bg-[rgba(255,255,255,0.06)] hover:text-[var(--text)]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+      ) : null}
     </div>
   );
 }
