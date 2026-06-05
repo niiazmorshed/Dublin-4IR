@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, Poppins, Red_Rose } from "next/font/google";
 import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/shared/ScrollToTop";
 import "./globals.css";
 
 const nasalization = localFont({
@@ -58,6 +59,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );

@@ -19,8 +19,11 @@ const INFO_LINKS = [
 ] as const;
 
 const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Twitter", href: "https://twitter.com" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/dublin-4ir/posts/?feedView=all",
+  },
+  { label: "Facebook", href: "https://www.facebook.com/dublin4ir" },
   { label: "GitHub", href: "https://github.com" },
 ] as const;
 
