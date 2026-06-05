@@ -95,10 +95,10 @@ export default function ContactSection() {
           </a>{" "}
           or call{" "}
           <a
-            href="tel:+8801734804733"
+            href="tel:+8801703082486"
             className="text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[var(--text)] hover:underline"
           >
-            +880 1734 804733
+            +880 1703 082486
           </a>
           .
         </p>

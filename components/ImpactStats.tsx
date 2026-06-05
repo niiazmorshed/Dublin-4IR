@@ -132,7 +132,7 @@ export default function ImpactStats() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:grid-rows-[auto_auto] lg:items-stretch lg:gap-5">
         <StatCard
           label="Active users on the platforms we designed"
-          value={<CountUp end={1.2} decimals={1} suffix="M+" duration={2200} />}
+          value={<CountUp end={100} suffix="K+" duration={2200} />}
           className="lg:col-span-3 lg:row-start-1"
           decor={<VerticalGlow />}
         />
@@ -149,7 +149,7 @@ export default function ImpactStats() {
             </p>
           </div>
           <p className={`relative z-[1] mt-6 ${statValueClass} !text-[clamp(2rem,4.5vw,3rem)] !tracking-[-0.04em]`}>
-            <CountUp end={50} prefix="€" suffix="M+" duration={2400} />
+            <CountUp end={500} prefix="€" suffix="K+" duration={2400} />
           </p>
         </article>
 
@@ -162,14 +162,14 @@ export default function ImpactStats() {
           <div className="relative z-[1]">
             <p className="text-[13px] leading-snug text-white/75">Total clients</p>
             <p className={`mt-3 ${statValueClass}`}>
-              <CountUp end={40} suffix="+" duration={2000} />
+              <CountUp end={15} duration={2000} />
             </p>
           </div>
         </article>
 
         <StatCard
           label="Complex projects complete"
-          value={<CountUp end={50} suffix="+" duration={2100} />}
+          value={<CountUp end={10} suffix="+" duration={2100} />}
           className="lg:col-span-3 lg:row-start-2"
           decor={<HorizontalGlow />}
         />
