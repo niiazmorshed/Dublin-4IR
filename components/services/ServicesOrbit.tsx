@@ -10,6 +10,18 @@ import {
 } from "@/lib/service-categories";
 
 const CARD_SLOTS = ["top", "right", "bottom", "left"] as const;
+const VISIBLE_COUNT = CARD_SLOTS.length;
+
+function formatVisiblePracticeRange(offset: number, total: number): string {
+  const first = (offset % total) + 1;
+  const last = ((offset + VISIBLE_COUNT - 1) % total) + 1;
+
+  if (first <= last) {
+    return first === last ? `${first}` : `${first}–${last}`;
+  }
+
+  return `${first}–${total}, 1–${last}`;
+}
 
 /** Cardinal points on a perfect circle (equal inset from center) */
 const SLOT_POSITION: Record<(typeof CARD_SLOTS)[number], string> = {
@@ -116,6 +128,7 @@ export default function ServicesOrbit() {
   );
 
   const visible = CARD_SLOTS.map((_, i) => SERVICE_CATEGORIES[(offset + i) % total]);
+  const visibleRange = formatVisiblePracticeRange(offset, total);
 
   return (
     <>
@@ -202,7 +215,7 @@ export default function ServicesOrbit() {
           </div>
 
           <p className="mt-12 text-center text-[11px] leading-relaxed text-[var(--text-dim)] min-[960px]:mt-14">
-            Showing 4 of {total} practices · use arrow.
+            Showing {visibleRange} of {total} practices · use arrow.
           </p>
         </div>
 
@@ -233,7 +246,7 @@ export default function ServicesOrbit() {
               Previous
             </button>
             <span className="text-[12px] text-[var(--text-dim)]">
-              4 of {total} practices
+              {visibleRange} of {total} practices
             </span>
             <button
               type="button"
