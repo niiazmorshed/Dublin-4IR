@@ -84,8 +84,14 @@ export default function Footer() {
       <div className="relative mx-auto max-w-[1240px] px-6 py-8 min-[960px]:px-10 min-[960px]:py-10">
         <div className="grid grid-cols-2 gap-8 min-[960px]:grid-cols-[1.4fr_repeat(3,1fr)] min-[960px]:gap-6">
           <div className="col-span-2 min-[960px]:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-2 text-[15px] font-bold tracking-[-0.02em] text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]">
-              Dublin<span className="text-white/80">4ir</span>
+            <Link href="/" aria-label="Dublin 4ir — home" className="inline-flex items-center">
+              <Image
+                src="/logo.png"
+                alt="Dublin 4ir"
+                width={188}
+                height={60}
+                className="h-11 w-auto"
+              />
             </Link>
             <p className="mt-2 max-w-[240px] text-[13px] leading-snug text-white/90 [text-shadow:0_1px_6px_rgba(0,0,0,0.45)]">
               Web &amp; app delivery for government and enterprise teams in Ireland.
