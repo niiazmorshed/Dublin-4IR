@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -143,16 +144,23 @@ export default function Navbar() {
           <div className="flex items-center justify-between gap-3 min-[960px]:gap-5">
             <Link
               href="/"
+              aria-label="Dublin 4ir — home"
               onClick={(e) => {
                 if (pathname !== "/") return;
                 e.preventDefault();
                 goToHomeTop();
                 setHomeSection("");
               }}
-              className="shrink-0 text-[20px] font-semibold tracking-[-0.02em] text-[var(--text)] min-[960px]:text-[22px]"
+              className="shrink-0"
             >
-              <span className="text-[var(--accent)]">D</span>ublin
-              <span className="text-[var(--text)]">4ir</span>
+              <Image
+                src="/logo.png"
+                alt="Dublin 4ir"
+                width={188}
+                height={60}
+                priority
+                className="h-10 w-auto min-[960px]:h-12"
+              />
             </Link>
 
             <div className="hidden min-[960px]:flex min-[960px]:flex-1 min-[960px]:justify-center">
