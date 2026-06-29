@@ -371,7 +371,7 @@ export default function StackingServices() {
               className="sticky top-0 grid min-h-screen place-content-center py-[6vh]"
             >
               <CardFrame className="w-[min(86vw,620px)]" tabLabel={service.tab}>
-                <div className="relative grid grid-cols-1 gap-6 overflow-hidden rounded-[24px] bg-[#050810]/95 p-7 backdrop-blur-md min-[560px]:grid-cols-[1fr_auto] min-[560px]:items-center min-[560px]:p-9">
+                <div className="relative grid grid-cols-1 gap-6 overflow-hidden rounded-[24px] bg-[#050810] p-7 min-[560px]:grid-cols-[1fr_auto] min-[560px]:items-center min-[560px]:p-9">
                   {/* accent wash */}
                   <div
                     aria-hidden

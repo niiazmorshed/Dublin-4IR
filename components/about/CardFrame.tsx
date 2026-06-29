@@ -110,7 +110,7 @@ export default function CardFrame({
               <stop offset="100%" stopColor="#2f2270" />
             </linearGradient>
           </defs>
-          {/* soft outer halo */}
+          {/* soft outer halo (drawn first so it reads as glow behind the panel) */}
           <path
             d={path}
             stroke="#33bbcf"
@@ -119,6 +119,10 @@ export default function CardFrame({
             strokeLinejoin="round"
             style={{ filter: "blur(7px)" }}
           />
+          {/* opaque panel fill — critical for the stacking deck: it lets the
+              current card fully occlude the tabs + labels of the cards pinned
+              behind it, instead of them piling up and overlapping. */}
+          <path d={path} fill="#050810" />
           {/* faint inner hairline for the double-line look */}
           <path
             d={path}
